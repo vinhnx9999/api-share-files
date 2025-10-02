@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>701c592e-08b1-4840-bae0-557b43cdc826</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.3.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.5" />
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VinhSharingFiles.Application\VinhSharingFiles.Application.csproj" />
+    <ProjectReference Include="..\VinhSharingFiles.Domain\VinhSharingFiles.Domain.csproj" />
+    <ProjectReference Include="..\VinhSharingFiles.Infrastructure\VinhSharingFiles.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
