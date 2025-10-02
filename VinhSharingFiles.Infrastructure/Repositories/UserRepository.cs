@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VinhSharingFiles.Application.Interfaces;
+using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
 using VinhSharingFiles.Infrastructure.Data;
 
@@ -9,18 +10,56 @@ namespace VinhSharingFiles.Infrastructure.Repositories
     {
         private readonly VinhSharingDbContext _context = context;
 
-        public async Task<IEnumerable<User>> GetAllUsersAsync()
-            => await _context.Users.ToListAsync();
-
-        public async Task<User> GetUserByIdAsync(int id)
+        public async Task<IEnumerable<UserInfoDto>> GetAllUsersAsync()
         {
-            return await _context.Users.FindAsync(id) ?? throw new Exception("User not found");
+            return await _context.Users
+                .Select(user => new UserInfoDto {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    DisplayName = user.DisplayName ?? string.Empty,
+                    Email = user.Email ?? string.Empty,
+                    IsActive = user.IsActive,
+                    CreatedDate = user.CreatedAt,
+                    ConfirmedDate = user.ConfirmedDate
+                })
+                .ToListAsync();
+        }
+           
+
+        public async Task<UserInfoDto> GetUserByIdAsync(int id)
+        {
+            var userInfo = await _context.Users.FindAsync(id) ?? throw new Exception("User not found");
+
+            return new UserInfoDto {
+                Id = userInfo.Id,
+                UserName = userInfo.UserName,
+                DisplayName = userInfo.DisplayName ?? string.Empty,
+                Email = userInfo.Email ?? string.Empty,
+                IsActive = userInfo.IsActive,
+                CreatedDate = userInfo.CreatedAt,
+                ConfirmedDate = userInfo.ConfirmedDate
+            };
         }
 
-        public async Task AddUserAsync(User user)
+        public async Task<bool> AddUserAsync(User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var users = await _context.Users
+                    .Where(x => x.UserName == user.UserName)
+                    .ToListAsync();
+
+                if (users.Count != 0)
+                    return false;
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }            
         }
 
         public async Task UpdateUserAsync(User user)
@@ -42,10 +81,73 @@ namespace VinhSharingFiles.Infrastructure.Repositories
         public async Task<User?> VerifyUserAsync(string userName, string password)
         {
             var users = await _context.Users
-                .Where(x => x.UserName == userName)
+                .Where(x => x.UserName == userName && x.IsActive)
                 .ToListAsync();
 
            return users.FirstOrDefault(x => x.Password == password);
+        }
+
+        public async Task<bool> ActivateEmailAsync(string email, string activeCode)
+        {
+            try
+            {
+                await ActivateEmailInternalAsync(email, activeCode);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }                
+        }
+
+        public async Task<bool> ActivateUserNameAsync(string userName, string activeCode)
+        {
+            try
+            {
+                await ActivateUserNameInternalAsync(userName, activeCode);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+                
+        }
+
+        private async Task ActivateEmailInternalAsync(string email, string activeCode)
+        {
+            var users = await _context.Users
+                 .Where(x => x.Email == email && !x.IsActive)
+                 .ToListAsync();
+
+            var user = users.FirstOrDefault(x => x.ActiveCode == activeCode);
+            if (user != null)
+            {
+                user.IsActive = true;
+                user.ActiveCode = string.Empty;
+                user.ConfirmedDate = DateTime.UtcNow;
+
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task ActivateUserNameInternalAsync(string userName, string activeCode)
+        {
+            var users = await _context.Users
+                .Where(x => x.UserName == userName && !x.IsActive)
+                .ToListAsync();
+
+            var user = users.FirstOrDefault(x => x.ActiveCode == activeCode);
+            if (user != null)
+            {
+                user.IsActive = true;
+                user.ActiveCode = string.Empty;
+                user.ConfirmedDate = DateTime.UtcNow;
+
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 

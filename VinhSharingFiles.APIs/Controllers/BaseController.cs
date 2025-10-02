@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ namespace VinhSharingFiles.APIs.Controllers
     [Route("api/[controller]")]
     [EnableCors("AllowPolicy")]
     [ApiController]
+    [Authorize]
     public class BaseController(IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         protected readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;

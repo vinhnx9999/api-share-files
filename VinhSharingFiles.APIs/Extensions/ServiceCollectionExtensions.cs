@@ -1,6 +1,7 @@
 ﻿using Amazon.Extensions.NETCore.Setup;
 using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Application.Services;
@@ -52,12 +53,10 @@ namespace VinhSharingFiles.APIs.Extensions
             else
             {
                 //use this for real database on your sql server
-                //configuration["Data:DefaultConnection:ConnectionString"]
-                //Or configuration.GetConnectionString("DbContext")
                 services.AddDbContext<VinhSharingDbContext>(options =>
                 {
                     options.UseSqlServer(
-                        configuration["Data:DefaultConnection:ConnectionString"],
+                        configuration.GetConnectionString("DefaultConnection"),
                         providerOptions => providerOptions.EnableRetryOnFailure()
                     );
                 });

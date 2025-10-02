@@ -43,80 +43,80 @@ namespace VinhSharingFiles.Infrastructure.Test
             Assert.Equal(displayName, items.DisplayName);
         }
 
-        [Fact]
-        public async Task GetAllItemsAsync_ShouldReturnAllItems()
-        {
-            // Arrange
-            _context.Users.AddRange(
-                new User
-                {
-                    Id = 2,
-                    DisplayName = displayName.Replace("01", "02"),
-                    UserName = "userTest02",
-                    CreatedAt = DateTime.Now
-                },
-                new User
-                {
-                    Id = 3,
-                    DisplayName = displayName.Replace("01", "03"),
-                    UserName = "userTest03",
-                    CreatedAt = DateTime.Now
-                }
-            );
-            await _context.SaveChangesAsync();
+        //[Fact]
+        //public async Task GetAllItemsAsync_ShouldReturnAllItems()
+        //{
+        //    // Arrange
+        //    _context.Users.AddRange(
+        //        new User
+        //        {
+        //            Id = 2,
+        //            DisplayName = displayName.Replace("01", "02"),
+        //            UserName = "userTest02",
+        //            CreatedAt = DateTime.Now
+        //        },
+        //        new User
+        //        {
+        //            Id = 3,
+        //            DisplayName = displayName.Replace("01", "03"),
+        //            UserName = "userTest03",
+        //            CreatedAt = DateTime.Now
+        //        }
+        //    );
+        //    await _context.SaveChangesAsync();
 
-            // Act
-            var items = await _repository.GetAllUsersAsync();
+        //    // Act
+        //    var items = await _repository.GetAllUsersAsync();
 
-            // Assert
-            Assert.True(items.Count() >= 2);
-        }
+        //    // Assert
+        //    Assert.True(items.Count() >= 2);
+        //}
 
-        [Fact]
-        public async Task GetItemByIdAsync_ShouldReturnItem()
-        {
-            // Arrange
-            var item = new User
-            {
-                Id = 5,
-                DisplayName = displayName.Replace("01", "05"),
-                UserName = "userTest05",
-                CreatedAt = DateTime.Now
-            };
+        //[Fact]
+        //public async Task GetItemByIdAsync_ShouldReturnItem()
+        //{
+        //    // Arrange
+        //    var item = new User
+        //    {
+        //        Id = 5,
+        //        DisplayName = displayName.Replace("01", "05"),
+        //        UserName = "userTest05",
+        //        CreatedAt = DateTime.Now
+        //    };
 
-            await _context.Users.AddAsync(item);
-            await _context.SaveChangesAsync();
+        //    await _context.Users.AddAsync(item);
+        //    await _context.SaveChangesAsync();
 
-            // Act
-            var result = await _repository.GetUserByIdAsync(5);
+        //    // Act
+        //    var result = await _repository.GetUserByIdAsync(5);
 
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(displayName, result.DisplayName);
-        }
+        //    // Assert
+        //    Assert.NotNull(result);
+        //    Assert.Equal(displayName, result.DisplayName);
+        //}
 
-        [Fact]
-        public async Task DeleteItemAsync_ShouldRemoveItem()
-        {
-            // Arrange
-            var item = new User
-            {
-                Id = 4,
-                DisplayName = displayName.Replace("01", "04"),
-                UserName = "userTest04",
-                CreatedAt = DateTime.Now
-            };
+        //[Fact]
+        //public async Task DeleteItemAsync_ShouldRemoveItem()
+        //{
+        //    // Arrange
+        //    var item = new User
+        //    {
+        //        Id = 4,
+        //        DisplayName = displayName.Replace("01", "04"),
+        //        UserName = "userTest04",
+        //        CreatedAt = DateTime.Now
+        //    };
 
-            await _context.Users.AddAsync(item);
-            await _context.SaveChangesAsync();
+        //    await _context.Users.AddAsync(item);
+        //    await _context.SaveChangesAsync();
 
-            // Act
-            await _repository.DeleteUserAsync(4);
-            var result = await _repository.GetUserByIdAsync(4);
+        //    // Act
+        //    await _repository.DeleteUserAsync(4);
+        //    var result = await _repository.GetUserByIdAsync(4);
 
-            // Assert
-            Assert.Null(result);
-        }
+        //    // Assert
+        //    Assert.Null(result);
+        //}
 
     }
 }

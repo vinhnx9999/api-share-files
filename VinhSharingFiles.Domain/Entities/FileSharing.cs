@@ -7,7 +7,7 @@
         public required string FilePath { get; set; }
         public required string FileType { get; set; }
         public long FileSize { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public int? UserId { get; set; }
         public bool AutoDelete { get; set; }
     }

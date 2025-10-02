@@ -100,11 +100,13 @@ namespace VinhSharingFiles.APIs
                 //app.UseSwaggerUI();
                 app.UseSwaggerUI(c => { c.SwaggerEndpoint("./v1/swagger.json", "Management document sharing"); });
             }
+                        
+            // Or "AllowAllOrigins" if you configured it
+            app.UseCors("AllowPolicy");
 
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
