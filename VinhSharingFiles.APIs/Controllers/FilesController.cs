@@ -1,10 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.APIs.Utilities;
 using VinhSharingFiles.Application.Interfaces;
+using VinhSharingFiles.Domain.DTOs;
 
 namespace VinhSharingFiles.APIs.Controllers
 {
+    public class DocumentsController(IHttpContextAccessor httpContextAccessor, ICloudService cloudService) :
+        BaseController(httpContextAccessor)
+    {
+        private readonly ICloudService _cloudService = cloudService;
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<FileObjectDto>>> GetAllFiles()
+        {
+            int userId = GetUserId();
+            var files = await _cloudService.GetAllFilesByUserIdAsync(userId);
+
+            return Ok(files);
+        }
+
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> PreviewFileByIdAsync(string id)
+        {
+            int fileId = IdEncryptor.DecryptId(id);
+            var fileObj = await _cloudService.PreviewFileAsync(fileId);
+            if (fileObj.ContentType == "STORE_TEXT_IN_DB")
+            {
+                return Ok(new
+                {
+                    FileId = id,
+                    Data = fileObj.Description,
+                });
+            }
+            return File(fileObj.Data, fileObj.ContentType ?? "");
+        }
+    }
+
     public class FilesController(IHttpContextAccessor httpContextAccessor, ICloudService cloudService) : 
         BaseController(httpContextAccessor)
     {
@@ -15,20 +49,6 @@ namespace VinhSharingFiles.APIs.Controllers
         {
             int userId = GetUserId();
             var fileUploadedId = await _cloudService.UploadFileAsync(userId, file, autoDelete);
-            string urlUploaded = IdEncryptor.EncryptId(fileUploadedId);
-            var fileUploaded = new
-            {
-                FileId = urlUploaded,
-                DownloadUrl = $"{Request.Scheme}://{Request.Host}/api/Files/{urlUploaded}"
-            };
-            return Ok(fileUploaded);
-        }
-
-        [HttpPost("UploadString/{autoDelete}")]
-        public async Task<IActionResult> UploadString2FileAsync([FromBody] string textInput, bool? autoDelete)
-        {
-            int userId = GetUserId();
-            var fileUploadedId = await _cloudService.UploadTextFileAsync(userId, textInput, autoDelete);
             string urlUploaded = IdEncryptor.EncryptId(fileUploadedId);
             var fileUploaded = new
             {
@@ -53,20 +73,20 @@ namespace VinhSharingFiles.APIs.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetFileByIdAsync(string id)
+        public async Task<IActionResult> DownloadFileByIdAsync(string id)
         {
             int fileId = IdEncryptor.DecryptId(id);
             var fileObj = await _cloudService.DownloadFileAsync(fileId);
+            if (fileObj.ContentType == "STORE_TEXT_IN_DB")
+            {
+                return Ok(new
+                {
+                    FileId = id,
+                    Data = fileObj.Description,
+                });
+            }
+
             return File(fileObj.Data, fileObj.ContentType ?? "");
         }
-
-        //[HttpDelete]
-        //public async Task<IActionResult> DeleteFileAsync(string bucketName, string key)
-        //{
-        //    var bucketExists = await Amazon.S3.Util.AmazonS3Util.DoesS3BucketExistV2Async(_s3Client, bucketName);
-        //    if (!bucketExists) return NotFound($"Bucket {bucketName} does not exist");
-        //    await _s3Client.DeleteObjectAsync(bucketName, key);
-        //    return NoContent();
-        //}
     }
 }

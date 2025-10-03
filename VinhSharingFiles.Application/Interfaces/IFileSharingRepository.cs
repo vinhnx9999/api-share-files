@@ -1,4 +1,5 @@
-﻿using VinhSharingFiles.Domain.Entities;
+﻿using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Domain.Entities;
 
 namespace VinhSharingFiles.Application.Interfaces
 {
@@ -8,5 +9,6 @@ namespace VinhSharingFiles.Application.Interfaces
         Task<int> AddFileAsync(FileSharing fileInfo);
         Task UpdateFileAsync(FileSharing fileInfo);
         Task DeleteFileByIdAsync(int id);
+        Task<IEnumerable<FileDto>> GetAllFiles(int userId);
     }
 }

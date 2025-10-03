@@ -19,9 +19,6 @@ namespace VinhSharingFiles.Application.Services
         private readonly string _encryptSalt = $"{configuration["EncryptKey:Salt"]}";
         private readonly SymmetricSecurityKey _tokenSecurityKey = new(System.Text.Encoding.ASCII.GetBytes($"{configuration["TokenSecurityKey"]}"));
 
-        public async Task RegisterUserAsync(User user)
-            => await _userRepository.AddUserAsync(user);
-
         public async Task RegisterUserAsync(string userName, string password, string displayName, string userEmail)
         {
             EncryptionService encryptionService = new(_encryptKey, _encryptSalt);
@@ -38,14 +35,22 @@ namespace VinhSharingFiles.Application.Services
                 CreatedAt = DateTime.UtcNow
             };
 
-            bool isCreated = await _userRepository.AddUserAsync(user);
+            //bool isCreated =
 
-            if (!isCreated)
-                throw new InvalidOperationException("User creation failed. The username or email might already exist.");
+            await _userRepository.AddUserAsync(user);
+            // Skip sending email for demo.com addresses
+            if (userEmail.Contains("@demo.com"))
+                return;
+
+            //if (!isCreated)
+            //    throw new InvalidOperationException("User creation failed. The username or email might already exist.");
 
             EmailSender emailSender = new(configuration);
             emailSender.SendEmail(userEmail, "Welcome to SharingFiles", $"Your account has been created. Username: {userName} and ActiveCode: {activeCode}");
         }
+
+        public async Task ActivateUserByIdAsync(int userId)
+            => await _userRepository.ActivateUserByIdAsync(userId);
 
         public async Task ActivateEmailAsync(string email, string activeCode)
         {
@@ -62,8 +67,7 @@ namespace VinhSharingFiles.Application.Services
             EmailSender emailSender = new(configuration);
             emailSender.SendEmail(email, "Account Activated", "Your email has been successfully activated.");
         }
-                  
-
+         
         public async Task ActivateUserNameAsync(string userName, string activeCode)
         {
             bool isActivated = await _userRepository.ActivateUserNameAsync(userName, activeCode);
@@ -119,6 +123,5 @@ namespace VinhSharingFiles.Application.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
-
     }
 }

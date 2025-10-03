@@ -13,5 +13,6 @@ namespace VinhSharingFiles.Application.Interfaces
         Task<User?> VerifyUserAsync(string userName, string password);
         Task<bool> ActivateEmailAsync(string email, string activeCode);
         Task<bool> ActivateUserNameAsync(string userName, string activeCode);
+        Task ActivateUserByIdAsync(int userId);
     }
 }

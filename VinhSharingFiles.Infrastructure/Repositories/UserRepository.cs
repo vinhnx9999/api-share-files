@@ -87,6 +87,23 @@ namespace VinhSharingFiles.Infrastructure.Repositories
            return users.FirstOrDefault(x => x.Password == password);
         }
 
+        public async Task ActivateUserByIdAsync(int userId)
+        {
+            var user = await _context.Users
+                .Where(x => x.Id == userId && !x.IsActive)
+                .FirstOrDefaultAsync();
+
+            if (user != null)
+            {
+                user.IsActive = true;
+                user.ActiveCode = string.Empty;
+                user.ConfirmedDate = DateTime.UtcNow;
+
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+            }
+        }
+
         public async Task<bool> ActivateEmailAsync(string email, string activeCode)
         {
             try
@@ -150,5 +167,4 @@ namespace VinhSharingFiles.Infrastructure.Repositories
             }
         }
     }
-
 }

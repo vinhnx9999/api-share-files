@@ -1,53 +1,60 @@
-﻿using System.Security.Cryptography;
+﻿using System;
 using System.Text;
 
 namespace VinhSharingFiles.APIs.Utilities
 {
     public static class IdEncryptor
     {
-        // A secret key for encryption (should be securely stored and managed)
-        private static readonly byte[] Key = Encoding.UTF8.GetBytes("secretQXltkEm2Qe"); // 32 bytes for AES-256
-
         public static string EncryptId(int id)
         {
-            string plainText = id.ToString();
-            using Aes aesAlg = Aes.Create();
-            aesAlg.Key = Key;
-            aesAlg.GenerateIV(); // Generate a new IV for each encryption
-            byte[] iv = aesAlg.IV;
-            using MemoryStream msEncrypt = new();
-            msEncrypt.Write(iv, 0, iv.Length); // Prepend IV to the encrypted data
-
-            ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-            using (CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write))
-            {
-                using StreamWriter swEncrypt = new(csEncrypt);
-                swEncrypt.Write(plainText);
-            }
-            return Convert.ToBase64String(msEncrypt.ToArray());
+            Random random = new();
+            string plainText = id.ToString("X2");            
+            return $"{GenerateRandomString(6)}{plainText}{random.NextInt64(99):00}";
         }
 
         public static int DecryptId(string cipherText)
         {
-            byte[] fullCipher = Convert.FromBase64String(cipherText);
+            try
+            {
+                string hex = cipherText[6..];
+                hex = hex[..^2]; // Remove the last two characters
+                int intValue = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
+                return intValue;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
 
-            using Aes aesAlg = Aes.Create();
-            aesAlg.Key = Key;
+        private static string GenerateRandomString(int length)
+        {
+            // Define character sets
+            const string lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
+            const string upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string numberChars = "0123456789";
 
-            // Extract IV (first 16 bytes for AES)
-            byte[] iv = new byte[aesAlg.BlockSize / 8];
-            Array.Copy(fullCipher, 0, iv, 0, iv.Length);
-            aesAlg.IV = iv;
+            // Build the allowed character set based on parameters
+            StringBuilder allowedChars = new();
+            allowedChars.Append(lowerCaseChars);
+            allowedChars.Append(upperCaseChars);
+            allowedChars.Append(numberChars);
 
-            ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+            if (allowedChars.Length == 0)
+            {
+                throw new ArgumentException("At least one character type must be included.");
+            }
 
-            using MemoryStream msDecrypt = new();
-            // Create a MemoryStream from the encrypted data (excluding IV)
-            using MemoryStream encryptedDataStream = new(fullCipher, iv.Length, fullCipher.Length - iv.Length);
-            using CryptoStream csDecrypt = new(encryptedDataStream, decryptor, CryptoStreamMode.Read);
-            using StreamReader srDecrypt = new(csDecrypt);
-            string decryptedText = srDecrypt.ReadToEnd();
-            return int.Parse(decryptedText);
+            // Generate the random string
+            Random random = new();
+            StringBuilder result = new(length);
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(allowedChars.Length);
+                result.Append(allowedChars[index]);
+            }
+
+            return result.ToString();
         }
     }
 }

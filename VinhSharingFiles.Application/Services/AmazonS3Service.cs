@@ -4,6 +4,7 @@ using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using System.Text;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
@@ -16,29 +17,95 @@ namespace VinhSharingFiles.Application.Services
         private IConfiguration _configuration;
         private AwsConfiguration _awsConfig;
         private readonly IFileSharingRepository _fileRepository;
-
+        private readonly int MAX_LENGTH_STORE_TEXT_IN_DB = 2500;
         // Or configure with specific region and credentials
         private IAmazonS3 _s3Client;
 
-        public AmazonS3Service(IConfiguration configuration, IAmazonS3 s3Client, IFileSharingRepository fileRepository) 
+        public AmazonS3Service(IConfiguration configuration, IFileSharingRepository fileRepository) 
         {
             _configuration = configuration;
-            _s3Client = s3Client;
+
             _awsConfig = new AwsConfiguration
             {
-                AWSAccessKey = _configuration.GetSection("AWS")["AccessKey"],
-                AWSSecretKey = _configuration.GetSection("AWS")["SecretKey"],
-                AWSRegion = _configuration.GetSection("AWS")["Region"],
-                AWSBucketName = _configuration.GetSection("AWS")["BucketName"]
+                AccessKey = _configuration.GetSection("AWS")["AccessKey"],
+                SecretKey = _configuration.GetSection("AWS")["SecretKey"],
+                Region = _configuration.GetSection("AWS")["Region"],
+                BucketName = _configuration.GetSection("AWS")["BucketName"]
             };
 
             _fileRepository = fileRepository;
+            //Verify AWS Credentials && contentLength
+            var credentials = new BasicAWSCredentials(_awsConfig.AccessKey, _awsConfig.SecretKey);
+            var config = new AmazonS3Config
+            {
+                RegionEndpoint = Amazon.RegionEndpoint.APSoutheast1 // Set your region
+            };
+            _s3Client = new AmazonS3Client(credentials, config);
+        }
+
+        public async Task<IEnumerable<FileDto>> GetAllFilesByUserIdAsync(int userId)
+            => await _fileRepository.GetAllFiles(userId);
+
+        public async Task<FileObjectDto> PreviewFileAsync(int fileId)
+        {
+            // Logic to get the file name from your database using the fileId
+            var fileRecord = await _fileRepository.GetFileByIdAsync(fileId) ?? throw new Exception("File not found in the database.");
+
+            if (fileRecord.FileName == "STORE_TEXT_IN_DB")
+            {
+                return new FileObjectDto
+                {                    
+                    ContentType = "STORE_TEXT_IN_DB",
+                    FileId = fileId,
+                    Name = "STORE_TEXT_IN_DB", //This is the display file name
+                    Description = fileRecord.Description // This is the text stored
+                };
+            }
+
+            // Use display name if available, otherwise use the original file name
+            string fileName = fileRecord.DisplayName ?? fileRecord.FileName;
+
+            try
+            {
+                var bucketExists = await Amazon.S3.Util.AmazonS3Util.DoesS3BucketExistV2Async(_s3Client, _awsConfig.BucketName);
+                if (!bucketExists) throw new Exception("File not found in the database.");
+                var s3Object = await _s3Client.GetObjectAsync(_awsConfig.BucketName, fileRecord.FileName);
+                return new FileObjectDto
+                {
+                    ContentType = fileRecord.FileType ?? s3Object.Headers.ContentType,
+                    FileId = fileId,
+                    Name = fileName, //This is the display file name
+                    Data = s3Object.ResponseStream // This is the stream containing the file data
+                };
+            }
+            catch (AmazonS3Exception e)
+            {
+                // Handle S3 specific exceptions (e.g., file not found, access denied)
+                Console.WriteLine($"Error getting object: {e.Message}");
+                throw;
+            }
+            catch (Exception e)
+            {
+                // Handle other general exceptions
+                Console.WriteLine($"Error: {e.Message}");
+                throw;
+            }
         }
 
         public async Task<FileObjectDto> DownloadFileAsync(int fileId)
         {
             // Logic to get the file name from your database using the fileId
             var fileRecord = await _fileRepository.GetFileByIdAsync(fileId) ?? throw new Exception("File not found in the database.");
+            if (fileRecord.FileName == "STORE_TEXT_IN_DB")
+            {
+                return new FileObjectDto
+                {
+                    ContentType = "STORE_TEXT_IN_DB",
+                    FileId = fileId,
+                    Name = "STORE_TEXT_IN_DB", //This is the display file name
+                    Description = fileRecord.Description // This is the text stored
+                };
+            }
 
             // Use display name if available, otherwise use the original file name
             string fileName = fileRecord.DisplayName ?? fileRecord.FileName;
@@ -48,7 +115,7 @@ namespace VinhSharingFiles.Application.Services
                 // Specify your bucket name and the key (file name)
                 GetObjectRequest request = new()
                 {
-                    BucketName = _awsConfig.AWSBucketName,
+                    BucketName = _awsConfig.BucketName,
                     Key = fileRecord.FileName //This is the original file name
                 };
 
@@ -62,7 +129,7 @@ namespace VinhSharingFiles.Application.Services
 
                 return new FileObjectDto
                 {
-                    ContentType = response.Headers["Content-Type"],
+                    ContentType = fileRecord.FileType ?? response.Headers["Content-Type"],
                     FileId = fileId,
                     Name = fileName, //This is the display file name
                     Data = response.ResponseStream // This is the stream containing the file data
@@ -94,14 +161,7 @@ namespace VinhSharingFiles.Application.Services
             //// Upload parts.
             //long contentLength = new FileInfo(zippath).Length;
             //long partSize = uploadmb * (long)Math.Pow(2, 20); // 5 MB  
-
-            //Verify AWS Credentials && contentLength
-            var credentials = new BasicAWSCredentials(_awsConfig.AWSAccessKey, _awsConfig.AWSSecretKey);
-            var config = new AmazonS3Config
-            {
-                RegionEndpoint = Amazon.RegionEndpoint.APSoutheast1 // Set your region
-            };
-            using var client = new AmazonS3Client(credentials, config);
+            
             await using var newMemoryStream = new MemoryStream();
             file.CopyTo(newMemoryStream);
 
@@ -109,37 +169,99 @@ namespace VinhSharingFiles.Application.Services
             {
                 InputStream = newMemoryStream,
                 Key = file.FileName,
-                BucketName = _awsConfig.AWSBucketName, // "your-bucket-name"
+                BucketName = _awsConfig.BucketName, // "your-bucket-name"
                 CannedACL = S3CannedACL.PublicRead
             };
 
-            var fileTransferUtility = new TransferUtility(client);
+            var fileTransferUtility = new TransferUtility(_s3Client);
             await fileTransferUtility.UploadAsync(uploadRequest);
 
+            return await SaveFileToDatabase(userId, file.FileName, file.ContentType, file.Length, deleteAfterDownload);            
+        }
+
+        //Create a text file and upload
+        public async Task<int> UploadTextFileAsync(int userId, string contentToStore, bool? deleteAfterAccessed)
+        {
+            if ((contentToStore ?? "").Length < MAX_LENGTH_STORE_TEXT_IN_DB)
+            {
+                return await SaveTextToDatabase(userId, contentToStore, deleteAfterAccessed);
+            }
+
+            try
+            {         
+                byte[] contentAsBytes = Encoding.UTF8.GetBytes(contentToStore ?? "");
+                string fileName = $"data_{userId:X2}_{DateTime.UtcNow.Ticks:X2}.txt";
+                using MemoryStream ms = new(contentAsBytes);
+                PutObjectRequest putRequest = new()
+                {
+                    BucketName = _awsConfig.BucketName, // "your-bucket-name"
+                    Key = fileName,
+                    InputStream = ms
+                };
+
+                PutObjectResponse response = await _s3Client.PutObjectAsync(putRequest);
+                Console.WriteLine($"Successfully uploaded string to S3 object: s3://{_awsConfig.BucketName}/{fileName}");
+
+                // You can optionally set the content type, e.g., "text/plain".
+                return await SaveFileToDatabase(userId, fileName, "text/plain", 0, deleteAfterAccessed);
+            }
+            catch (AmazonS3Exception e)
+            {
+                Console.WriteLine($"Error encountered on server. Message:'{e.Message}' when writing an object");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Unknown error encountered on client. Message:'{e.Message}' when writing an object");
+            }
+
+            return 0;
+        }
+
+        private async Task<int> SaveTextToDatabase(int userId, string? contentToStore, bool? deleteAfterAccessed)
+        {
             // Save file info to database
             FileSharing fileInfo = new()
             {
                 Id = 0,
                 UserId = userId,
-                DisplayName = file.FileName,
-                FileType = file.ContentType,
-                FilePath = file.FileName,
-                FileName = file.FileName,
-                FileSize = file.Length,
+                DisplayName = "STORE_TEXT_IN_DB",
+                FileName = "STORE_TEXT_IN_DB",
+                FileType = "",
+                FilePath = "",
+                FileSize = 0,
+                Description = contentToStore,
                 CreatedAt = DateTime.UtcNow,
-                AutoDelete = deleteAfterDownload ?? false
+                AutoDelete = deleteAfterAccessed ?? false
             };
-                       
+
             var fileId = await _fileRepository.AddFileAsync(fileInfo);
 
             // Return the file ID or any other relevant information
             return fileId;
         }
 
-        public Task<int> UploadTextFileAsync(int userId, string textData, bool? deleteAfterAccessed)
+        private async Task<int> SaveFileToDatabase(int userId, string fileName, 
+            string contentType, long fileSize, bool? deleteAfterDownload)
         {
-            ///Create a text file and upload
-            throw new NotImplementedException();
+            // Save file info to database
+            FileSharing fileInfo = new()
+            {
+                Id = 0,
+                UserId = userId,
+                DisplayName = fileName,
+                FileType = contentType,
+                FilePath = fileName,
+                FileName = fileName,
+                FileSize = fileSize,
+                CreatedAt = DateTime.UtcNow,
+                AutoDelete = deleteAfterDownload ?? false
+            };
+
+            var fileId = await _fileRepository.AddFileAsync(fileInfo);
+
+            // Return the file ID or any other relevant information
+            return fileId;
         }
+
     }
 }

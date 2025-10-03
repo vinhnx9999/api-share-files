@@ -2,6 +2,7 @@
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using VinhSharingFiles.Domain.DTOs;
 
 namespace VinhSharingFiles.Infrastructure.Repositories
 {
@@ -13,11 +14,14 @@ namespace VinhSharingFiles.Infrastructure.Repositories
         {
             try
             {
-                var existingFile = await _context.FileSharings.FirstOrDefaultAsync(f => f.FileName == fileInfo.FileName && f.UserId == fileInfo.UserId);
-                if (existingFile != null)
+                if (fileInfo.FileName != "STORE_TEXT_IN_DB")
                 {
-                    throw new Exception("A file with the same name already exists for this user.");
-                }
+                    var existingFile = await _context.FileSharings.FirstOrDefaultAsync(f => f.FileName == fileInfo.FileName && f.UserId == fileInfo.UserId);
+                    if (existingFile != null)
+                    {
+                        throw new Exception("A file with the same name already exists for this user.");
+                    }
+                }               
 
                 _context.FileSharings.Add(fileInfo);
                 await _context.SaveChangesAsync();
@@ -38,6 +42,23 @@ namespace VinhSharingFiles.Infrastructure.Repositories
                 _context.FileSharings.Remove(fileInfo);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<FileDto>> GetAllFiles(int userId)
+        {
+            return await _context.FileSharings
+                .Where(x => x.UserId == userId)
+                .Select( x => new FileDto
+                {
+                    Id = x.Id,
+                    FileSize = x.FileSize, 
+                    FileName = x.FileName,
+                    FilePath = x.FilePath,
+                    ContentType = x.FileType,
+                    Description = x.Description,
+                    CreatedAt = x.CreatedAt,
+                })
+                .ToListAsync();
         }
 
         public async Task<FileSharing> GetFileByIdAsync(int id)

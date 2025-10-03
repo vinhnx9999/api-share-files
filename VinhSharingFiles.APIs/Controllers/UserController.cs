@@ -1,5 +1,4 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.Domain.DTOs;
@@ -21,7 +20,7 @@ namespace VinhSharingFiles.APIs.Controllers
 
         [HttpPost("SignUp")]
         [AllowAnonymous]
-        public async Task<IActionResult> CreateUser([FromBody] SignUpModel model)
+        public async Task<IActionResult> SignUp([FromBody] SignUpModel model)
         {
             string passWord = model.Password ?? DEFAULT_PASSWORD;
 
@@ -39,6 +38,8 @@ namespace VinhSharingFiles.APIs.Controllers
         public async Task<IActionResult> SignIn([FromBody] SignInModel model)
         {
             var userInfo = await _authService.SignInAsync(model.UserName, model.Password);
+            if (userInfo == null) return NotFound();
+
             return Ok(userInfo);
         }
 
@@ -56,6 +57,13 @@ namespace VinhSharingFiles.APIs.Controllers
         {
             await _authService.ActivateUserNameAsync(model.UserName, model.ActiveCode);
 
+            return Ok(new { Message = "Your account has been confirmed" });
+        }
+
+        [HttpPost("{id}/force-activate")]
+        public async Task<IActionResult> ActivateUser(int id)
+        {
+            await _authService.ActivateUserByIdAsync(id);
             return Ok(new { Message = "Your account has been confirmed" });
         }
 
