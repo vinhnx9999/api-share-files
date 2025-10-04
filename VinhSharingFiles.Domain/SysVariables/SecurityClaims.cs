@@ -2,6 +2,7 @@
 
 public static class SecurityClaims
 {
+    public static string Issuer { get; set; } = @"Vinh.Nguyen";
     public static string Scopes { get; set; } = @"openId, profile";
     public static string System { get; set; } = @"Sharing Files System";
 

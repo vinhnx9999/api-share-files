@@ -10,36 +10,11 @@ public class UserRepository(VinhSharingDbContext context) : IUserRepository
 {
     private readonly VinhSharingDbContext _context = context;
 
-    public async Task<IEnumerable<UserInfoDto>> GetAllUsersAsync()
-    {
-        return await _context.Users
-            .Select(user => new UserInfoDto {
-                Id = user.Id,
-                UserName = user.UserName,
-                DisplayName = user.DisplayName ?? string.Empty,
-                Email = user.Email ?? string.Empty,
-                IsActive = user.IsActive,
-                CreatedDate = user.CreatedAt,
-                ConfirmedDate = user.ConfirmedDate
-            })
-            .ToListAsync();
-    }
-       
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
+        => await _context.Users.ToListAsync();
 
-    public async Task<UserInfoDto> GetUserByIdAsync(int id)
-    {
-        var userInfo = await _context.Users.FindAsync(id) ?? throw new Exception("User not found");
 
-        return new UserInfoDto {
-            Id = userInfo.Id,
-            UserName = userInfo.UserName,
-            DisplayName = userInfo.DisplayName ?? string.Empty,
-            Email = userInfo.Email ?? string.Empty,
-            IsActive = userInfo.IsActive,
-            CreatedDate = userInfo.CreatedAt,
-            ConfirmedDate = userInfo.ConfirmedDate
-        };
-    }
+    public async Task<User?> GetUserByIdAsync(int id) => await _context.Users.FindAsync(id);
 
     public async Task<bool> AddUserAsync(User user)
     {

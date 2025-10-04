@@ -52,11 +52,12 @@ public class BaseController(IHttpContextAccessor httpContextAccessor) : Controll
             return claimValue;
 
         }
-        catch (Exception)
+        catch (ArgumentException)
         {
-            // Handle token validation or reading errors.
-            return null;
+            // Handle token validation or reading errors.            
         }
+
+        return null;
     }
 
     private string GetTokenFromContext()

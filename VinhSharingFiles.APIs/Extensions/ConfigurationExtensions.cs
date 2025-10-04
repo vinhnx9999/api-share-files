@@ -9,14 +9,9 @@ namespace VinhSharingFiles.APIs.Extensions
     {
         public const string DEFAULT_CONFIG_SECTION = "AWS";
 
-        public static AWSOptions GetAWSOptions(this IConfiguration config)
-        {
-            return config.GetAWSOptions("AWS");
-        }
-
         public static AWSOptions GetAWSOptions(this IConfiguration config, string configSection)
         {
-            AWSOptions aWSOptions = new AWSOptions();
+            AWSOptions aWSOptions = new();
             IConfiguration configuration = ((!string.IsNullOrEmpty(configSection)) ? config.GetSection(configSection) : config);
             if (configuration == null)
             {

@@ -6,7 +6,7 @@ namespace VinhSharingFiles.APIs.Extensions
 {
     public static class JwtSecurityExtensions
     {
-        public static Task TokenJwtValidated(this TokenValidatedContext context)
+        public static Task TokenJwtValidatedAsync(this TokenValidatedContext context)
         {
             if (context.SecurityToken is JwtSecurityToken accessToken)
             {

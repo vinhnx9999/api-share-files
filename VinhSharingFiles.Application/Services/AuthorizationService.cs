@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using VinhSharingFiles.Application.Interfaces;
@@ -23,7 +24,7 @@ public class AuthorizationService(
     {
         EncryptionService encryptionService = new(_encryptKey, _encryptSalt);
         string encryptedText = encryptionService.Encrypt(password);
-        string activeCode = Guid.NewGuid().ToString("N").ToUpper();
+        string activeCode = Guid.NewGuid().ToString("N").ToLower(new CultureInfo("en-US", false));
 
         var user = new User
         {
@@ -104,7 +105,7 @@ public class AuthorizationService(
             new(ClaimTypes.Name, user.UserName ?? ""),
             new("scopes", SecurityClaims.Scopes),
             new("aud", $"Audience {Guid.NewGuid()}"),
-            new("iss", $"Internal Token"),
+            new("iss", SecurityClaims.Issuer),
             new(ClaimTypes.Expired, $"{expiredTime.Ticks}"),
             new(ClaimTypes.Sid, $"{user.Id:X2}"),
             new(ClaimTypes.NameIdentifier, $"{user.DisplayName}"),

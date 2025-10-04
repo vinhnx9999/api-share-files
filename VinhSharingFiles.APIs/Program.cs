@@ -46,7 +46,7 @@ namespace VinhSharingFiles.APIs
                     };
                     options.Events = new JwtBearerEvents()
                     {
-                        OnTokenValidated = context => context.TokenJwtValidated(),
+                        OnTokenValidated = context => context.TokenJwtValidatedAsync(),
                         OnAuthenticationFailed = context =>
                         {
                             Console.WriteLine("OnAuthenticationFailed: " +

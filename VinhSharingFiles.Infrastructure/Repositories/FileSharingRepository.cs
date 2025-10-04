@@ -2,7 +2,6 @@
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using VinhSharingFiles.Domain.DTOs;
 
 namespace VinhSharingFiles.Infrastructure.Repositories;
 
@@ -44,27 +43,15 @@ public class FileSharingRepository(VinhSharingDbContext context) : IFileSharingR
         }
     }
 
-    public async Task<IEnumerable<FileDto>> GetAllFiles(int userId)
+    public async Task<IEnumerable<FileSharing>> GetAllFiles(int userId)
     {
         return await _context.FileSharings
-            .Where(x => x.UserId == userId)
-            .Select( x => new FileDto
-            {
-                Id = x.Id,
-                FileSize = x.FileSize, 
-                FileName = x.FileName,
-                FilePath = x.FilePath,
-                ContentType = x.FileType,
-                Description = x.Description,
-                CreatedAt = x.CreatedAt,
-            })
+            .Where(x => x.UserId == userId)            
             .ToListAsync();
     }
 
-    public async Task<FileSharing> GetFileByIdAsync(int id)
-    {
-        return await _context.FileSharings.FindAsync(id) ?? throw new Exception("File not found");
-    }
+    public async Task<FileSharing?> GetFileByIdAsync(int id)
+        => await _context.FileSharings.FindAsync(id);
 
     public async Task UpdateFileAsync(FileSharing fileInfo)
     {

@@ -44,7 +44,19 @@ public class AmazonS3Service : ICloudService
     }
 
     public async Task<IEnumerable<FileDto>> GetAllFilesByUserIdAsync(int userId)
-        => await _fileRepository.GetAllFiles(userId);
+    {
+        var data = await _fileRepository.GetAllFiles(userId);
+        return data.Select(x => new FileDto
+        {
+            Id = x.Id,
+            FileSize = x.FileSize,
+            FileName = x.FileName,
+            FilePath = x.FilePath,
+            ContentType = x.FileType,
+            Description = x.Description,
+            CreatedAt = x.CreatedAt,
+        });
+    }
 
     public async Task<FileObjectDto> PreviewFileAsync(int fileId)
     {
@@ -110,6 +122,11 @@ public class AmazonS3Service : ICloudService
             };
 
             PutBucketResponse response = await _s3Client.PutBucketAsync(putBucketRequest);
+            if (response.HttpStatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception($"Failed to create bucket '{_awsConfig.BucketName}'. Status code: {response.HttpStatusCode}");
+            }
+
             Console.WriteLine($"Bucket '{_awsConfig.BucketName}' created successfully.");
         }
         catch (AmazonS3Exception e)
