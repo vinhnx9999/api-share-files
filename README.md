@@ -1,4 +1,3 @@
-"# api-share-files" 
 Main workflow / functionality:
   1. User can register (using email + password) and then log in using those email and password
   2. Authorized users have ability to:
