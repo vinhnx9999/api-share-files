@@ -2,7 +2,7 @@
 
 namespace VinhSharingFiles.APIs.Models
 {
-    public class SignUpModel
+    public record SignUpModel
     {
         public required string UserName { get; set; }
         public string? DisplayName { get; set; }

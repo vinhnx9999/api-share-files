@@ -1,8 +1,8 @@
 ﻿namespace VinhSharingFiles.APIs.Models
 {
-    public record SignInModel
+    public record ActivateUserNameModel
     {
         public required string UserName { get; set; }
-        public required string Password { get; set; }
+        public required string ActiveCode { get; set; }
     }
 }

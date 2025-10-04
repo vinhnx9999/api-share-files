@@ -18,8 +18,7 @@ namespace VinhSharingFiles.APIs.Utilities
             {
                 string hex = cipherText[6..];
                 hex = hex[..^2]; // Remove the last two characters
-                int intValue = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
-                return intValue;
+                return hex.ConvertingHex2Int(0);
             }
             catch
             {

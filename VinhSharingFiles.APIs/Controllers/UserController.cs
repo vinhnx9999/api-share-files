@@ -5,83 +5,82 @@ using VinhSharingFiles.Domain.DTOs;
 using IAuthorizationService = VinhSharingFiles.Application.Interfaces.IAuthorizationService;
 using IUserService = VinhSharingFiles.Application.Interfaces.IUserService;
 
-namespace VinhSharingFiles.APIs.Controllers
+namespace VinhSharingFiles.APIs.Controllers;
+
+public class UserController(
+    IHttpContextAccessor httpContextAccessor, 
+    IAuthorizationService authService,
+    IUserService userService) : 
+    BaseController(httpContextAccessor)
 {
-    public class UserController(
-        IHttpContextAccessor httpContextAccessor, 
-        IAuthorizationService authService,
-        IUserService userService) : 
-        BaseController(httpContextAccessor)
+    private readonly IAuthorizationService _authService = authService;
+    private readonly IUserService _userService = userService;
+
+    private readonly string DEFAULT_PASSWORD = "P@ssw0rd";
+
+    [HttpPost("SignUp")]
+    [AllowAnonymous]
+    public async Task<IActionResult> SignUp([FromBody] SignUpModel model)
     {
-        private readonly IAuthorizationService _authService = authService;
-        private readonly IUserService _userService = userService;
+        string passWord = model.Password ?? DEFAULT_PASSWORD;
 
-        private readonly string DEFAULT_PASSWORD = "P@ssw0rd";
+        if (passWord.Length < 5) passWord = DEFAULT_PASSWORD;
+        await _authService.RegisterUserAsync(model.UserName,
+            passWord, 
+            model.DisplayName ?? String.Empty, 
+            model.Email ?? String.Empty);
 
-        [HttpPost("SignUp")]
-        [AllowAnonymous]
-        public async Task<IActionResult> SignUp([FromBody] SignUpModel model)
-        {
-            string passWord = model.Password ?? DEFAULT_PASSWORD;
+        return Ok(new { Message = "User created successfully" });
+    }
 
-            if (passWord.Length < 5) passWord = DEFAULT_PASSWORD;
-            await _authService.RegisterUserAsync(model.UserName,
-                passWord, 
-                model.DisplayName ?? String.Empty, 
-                model.Email ?? String.Empty);
+    [HttpPost("SignIn")]
+    [AllowAnonymous]
+    public async Task<IActionResult> SignIn([FromBody] SignInModel model)
+    {
+        var userInfo = await _authService.SignInAsync(model.UserName, model.Password);
+        if (userInfo == null) return NotFound();
 
-            return Ok(new { Message = "User created successfully" });
-        }
+        return Ok(userInfo);
+    }
 
-        [HttpPost("SignIn")]
-        [AllowAnonymous]
-        public async Task<IActionResult> SignIn([FromBody] SignInModel model)
-        {
-            var userInfo = await _authService.SignInAsync(model.UserName, model.Password);
-            if (userInfo == null) return NotFound();
+    [HttpPost("activate-email")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ActivateEmail([FromBody] ActivateEmailModel model)
+    {
+        await _authService.ActivateEmailAsync(model.Email, model.ActiveCode);
+        return Ok(new { Message = "Your account has been confirmed" });
+    }
 
-            return Ok(userInfo);
-        }
+    [HttpPost("activate-username")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ActivateUserName([FromBody] ActivateUserNameModel model)
+    {
+        await _authService.ActivateUserNameAsync(model.UserName, model.ActiveCode);
 
-        [HttpPost("activate-email")]
-        [AllowAnonymous]
-        public async Task<IActionResult> ActivateEmail([FromBody] ActivateEmailModel model)
-        {
-            await _authService.ActivateEmailAsync(model.Email, model.ActiveCode);
-            return Ok(new { Message = "Your account has been confirmed" });
-        }
+        return Ok(new { Message = "Your account has been confirmed" });
+    }
 
-        [HttpPost("activate-username")]
-        [AllowAnonymous]
-        public async Task<IActionResult> ActivateUserName([FromBody] ActivateUserNameModel model)
-        {
-            await _authService.ActivateUserNameAsync(model.UserName, model.ActiveCode);
+    [HttpPost("{id}/force-activate")]
+    public async Task<IActionResult> ActivateUser(int id)
+    {
+        await _authService.ActivateUserByIdAsync(id);
+        return Ok(new { Message = "Your account has been confirmed" });
+    }
 
-            return Ok(new { Message = "Your account has been confirmed" });
-        }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<UserInfoDto>> GetUser(int id)
+    {
+        var user = await _userService.GetUserByIdAsync(id);
+        if (user == null) return NotFound();
 
-        [HttpPost("{id}/force-activate")]
-        public async Task<IActionResult> ActivateUser(int id)
-        {
-            await _authService.ActivateUserByIdAsync(id);
-            return Ok(new { Message = "Your account has been confirmed" });
-        }
+        return Ok(user);
+    }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserInfoDto>> GetUser(int id)
-        {
-            var user = await _userService.GetUserByIdAsync(id);
-            if (user == null) return NotFound();
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<UserInfoDto>>> GetAllUser()
+    {
+        var users = await _userService.GetAllUsersAsync();
 
-            return Ok(user);
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserInfoDto>>> GetAllUser()
-        {
-            var users = await _userService.GetAllUsersAsync();
-
-            return Ok(users);
-        }
+        return Ok(users);
     }
 }
