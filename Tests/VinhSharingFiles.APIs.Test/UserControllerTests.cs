@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using System.Globalization;
 using VinhSharingFiles.APIs.Controllers;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.Application.Interfaces;
@@ -28,7 +29,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task GetAll_ReturnsOkResult_WithItems()
+    public async Task GetAll_ReturnsOkResult_WithItemsAsync()
     {
         // Arrange
         var items = new List<UserInfoDto>
@@ -49,7 +50,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task GetById_ReturnsNotFound_WhenItemDoesNotExist()
+    public async Task GetById_ReturnsNotFound_WhenItemDoesNotExistAsync()
     {
         // Arrange
         _mockUserService.Setup(service => service.GetUserByIdAsync(1)).ReturnsAsync((UserInfoDto)null);
@@ -62,7 +63,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task GetById_ReturnsOkResult_WithItem()
+    public async Task GetById_ReturnsOkResult_WithItemAsync()
     {
         // Arrange
         var item = new UserInfoDto { Id = 1, DisplayName = "User 1" };
@@ -78,7 +79,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task SignUp_ReturnsOkResult()
+    public async Task SignUp_ReturnsOkResultAsync()
     {
         // Arrange
         var newItem = new SignUpModel
@@ -99,7 +100,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task SignIn_ReturnsNotFound()
+    public async Task SignIn_ReturnsNotFoundAsync()
     {
         // Arrange
         var signInModel = new SignInModel { UserName = "newuser", Password = ""};
@@ -112,7 +113,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task SignIn_ReturnsOkResult()
+    public async Task SignIn_ReturnsOkResultAsync()
     {
         // Arrange
         var signInModel = new SignInModel { UserName = "newuser", Password = "P@ssw0rd" };
@@ -130,12 +131,12 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task Activate_By_Email_ReturnsOkResult()
+    public async Task Activate_By_Email_ReturnsOkResultAsync()
     {
         // Arrange
         var newItem = new ActivateEmailModel
         {
-            ActiveCode = Guid.NewGuid().ToString("N").ToUpper(),
+            ActiveCode = Guid.NewGuid().ToString("N").ToLower(new CultureInfo("en-US", false)),
             Email = "vinhnx9999@gmail.com"
         };
 
@@ -149,12 +150,12 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task Activate_By_UserName_ReturnsOkResult()
+    public async Task Activate_By_UserName_ReturnsOkResultAsync()
     {
         // Arrange
         var newItem = new ActivateUserNameModel
         {
-            ActiveCode = Guid.NewGuid().ToString("N").ToUpper(),
+            ActiveCode = Guid.NewGuid().ToString("N").ToLower(new CultureInfo("en-US", false)),
             UserName = "vinhnx9999"
         };
 
@@ -168,7 +169,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task Forced_Activate_User_By_Id_ReturnsOkResult()
+    public async Task Forced_Activate_User_By_Id_ReturnsOkResultAsync()
     {
         // Arrange
         int userId = 1;

@@ -32,7 +32,7 @@ public class AmazonS3ServiceTests
     }
 
     [Fact]
-    public async Task GetAllFilesByUserIdAsync_ReturnsItems()
+    public async Task GetAllFilesByUserId_ReturnsItemsAsync()
     {
         //Arrange
         var expectedItems = new List<FileSharing>
@@ -54,7 +54,7 @@ public class AmazonS3ServiceTests
     }
 
     [Fact]
-    public async Task PreviewFileAsync_ReturnsItem()
+    public async Task PreviewFile_ReturnsItemAsync()
     {
         // Arrange
         var expectedItem = new FileSharing { Id = 1, FileName = "STORE_TEXT_IN_DB", Description = "Description 1" };
@@ -69,7 +69,7 @@ public class AmazonS3ServiceTests
     }
 
     [Fact]
-    public async Task DownloadFileAsync_ReturnsItem()
+    public async Task DownloadFile_ReturnsItemAsync()
     {
         // Arrange
         var expectedItem = new FileSharing { Id = 1, FileName = "STORE_TEXT_IN_DB", Description = "Description 1" };

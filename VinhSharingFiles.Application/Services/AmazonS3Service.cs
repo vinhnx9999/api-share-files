@@ -14,12 +14,12 @@ namespace VinhSharingFiles.Application.Services;
 
 public class AmazonS3Service : ICloudService
 {
-    private IConfiguration _configuration;
-    private AwsConfiguration _awsConfig;
+    private readonly IConfiguration _configuration;
+    private readonly AwsConfiguration _awsConfig;
     private readonly IFileSharingRepository _fileRepository;
     private readonly int MAX_LENGTH_STORE_TEXT_IN_DB = 2500;
     // Or configure with specific region and credentials
-    private IAmazonS3 _s3Client;
+    private readonly IAmazonS3 _s3Client;
 
     public AmazonS3Service(IConfiguration configuration, IFileSharingRepository fileRepository) 
     {
@@ -124,7 +124,7 @@ public class AmazonS3Service : ICloudService
             PutBucketResponse response = await _s3Client.PutBucketAsync(putBucketRequest);
             if (response.HttpStatusCode != System.Net.HttpStatusCode.OK)
             {
-                throw new Exception($"Failed to create bucket '{_awsConfig.BucketName}'. Status code: {response.HttpStatusCode}");
+                throw new ArgumentException($"Failed to create bucket '{_awsConfig.BucketName}'. Status code: {response.HttpStatusCode}");
             }
 
             Console.WriteLine($"Bucket '{_awsConfig.BucketName}' created successfully.");
@@ -247,6 +247,11 @@ public class AmazonS3Service : ICloudService
             };
 
             PutObjectResponse response = await _s3Client.PutObjectAsync(putRequest);
+            if (response.HttpStatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new ArgumentException($"Failed to upload file '{fileName}' to bucket '{_awsConfig.BucketName}'. Status code: {response.HttpStatusCode}");
+            }
+
             Console.WriteLine($"Successfully uploaded string to S3 object: s3://{_awsConfig.BucketName}/{fileName}");
 
             // You can optionally set the content type, e.g., "text/plain".

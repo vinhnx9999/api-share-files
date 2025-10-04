@@ -9,7 +9,7 @@ public class UserRepositoryTests
 {
     private readonly VinhSharingDbContext _context;
     private readonly UserRepository _repository;
-    private string displayName = "User Test 01";
+    private readonly string displayName = "User Test 01";
 
     public UserRepositoryTests()
     {
@@ -23,7 +23,7 @@ public class UserRepositoryTests
     }
 
     [Fact]
-    public async Task AddItemAsync_ShouldAddItem()
+    public async Task AddItem_ShouldAddItemAsync()
     {
         // Arrange
         var newItem = new User
@@ -44,7 +44,7 @@ public class UserRepositoryTests
     }
 
     [Fact]
-    public async Task GetAllItemsAsync_ShouldReturnAllItems()
+    public async Task GetAllItems_ShouldReturnAllItemsAsync()
     {
         // Arrange
         var newItem01 = new User
@@ -82,7 +82,7 @@ public class UserRepositoryTests
     }
 
     [Fact]
-    public async Task GetItemByIdAsync_ShouldReturnItem()
+    public async Task GetItemById_ShouldReturnItemAsync()
     {
         // Arrange
         var userInfo = new User
@@ -110,7 +110,7 @@ public class UserRepositoryTests
     }
 
     [Fact]
-    public async Task DeleteItemAsync_ShouldRemoveItem()
+    public async Task DeleteItem_ShouldRemoveItemAsync()
     {
         // Arrange
         var userInfo = new User

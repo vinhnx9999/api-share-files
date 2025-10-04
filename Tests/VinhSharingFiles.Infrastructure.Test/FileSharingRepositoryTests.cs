@@ -23,7 +23,7 @@ public class FileSharingRepositoryTests
     }
 
     [Fact]
-    public async Task AddItemAsync_ShouldAddItem()
+    public async Task AddItem_ShouldAddItemAsync()
     {
         //// Arrange
         //var newItem = new FileSharing
@@ -49,7 +49,7 @@ public class FileSharingRepositoryTests
     }
 
     [Fact]
-    public async Task GetAllItemsAsync_ShouldReturnAllItems()
+    public async Task GetAllItems_ShouldReturnAllItemsAsync()
     {
         // Arrange
         var newItem01 = new FileSharing
@@ -85,7 +85,7 @@ public class FileSharingRepositoryTests
     }
 
     [Fact]
-    public async Task GetItemByIdAsync_ShouldReturnItem()
+    public async Task GetItemById_ShouldReturnItemAsync()
     {
         // Arrange
         var fileInfo = new FileSharing
@@ -113,7 +113,7 @@ public class FileSharingRepositoryTests
     }
 
     [Fact]
-    public async Task DeleteItemAsync_ShouldRemoveItem()
+    public async Task DeleteItem_ShouldRemoveItemAsync()
     {
         // Arrange
         var fileInfo = new FileSharing

@@ -1,7 +1,6 @@
 using Moq;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Application.Services;
-using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
 
 namespace VinhSharingFiles.Application.Test;
@@ -18,7 +17,7 @@ public class UserServiceTests
     }
 
     [Fact]
-    public async Task GetAllUsersAsync_ReturnsItems()
+    public async Task GetAllUsers_ReturnsItemsAsync()
     {
         //Arrange
         var expectedItems = new List<User>
@@ -38,7 +37,7 @@ public class UserServiceTests
     }
 
     [Fact]
-    public async Task GetUserByIdAsync_ReturnsItem()
+    public async Task GetUserById_ReturnsItemAsync()
     {
         // Arrange
         var expectedItem = new User { Id = 1, DisplayName = "User 1", UserName = "user01", IsActive = true, Email = $"{Guid.NewGuid()}@demo.com" };
@@ -53,7 +52,7 @@ public class UserServiceTests
     }
 
     [Fact]
-    public async Task UpdateUserAsync_CallsRepositoryMethod()
+    public async Task UpdateUser_CallsRepositoryMethodAsync()
     {
         // Arrange
         var updatedItem = new User {Id = 1, DisplayName = "User 1", UserName = "user01", IsActive = true, Email = $"{Guid.NewGuid()}@demo.com" };
@@ -66,7 +65,7 @@ public class UserServiceTests
     }
 
     [Fact]
-    public async Task DeleteItemAsync_CallsRepositoryMethod()
+    public async Task DeleteItem_CallsRepositoryMethodAsync()
     {
         // Arrange
         int itemIdToDelete = 1;

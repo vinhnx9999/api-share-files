@@ -34,6 +34,7 @@ public class DocumentsController(IHttpContextAccessor httpContextAccessor, IClou
                 Data = fileObj.Description,
             });
         }
+
         return File(fileObj.Data, fileObj.ContentType ?? "");
     }
 }

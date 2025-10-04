@@ -18,8 +18,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsRequired(); 
 
         builder.HasData(
-            new User { Id = 1, IsActive = true, DisplayName = "User 01", UserName = "vinh.nguyen", Email = "vinhnx9999@gmail.com", Password = "123456", CreatedAt = DateTime.Now },
-            new User { Id = 2, IsActive = true, DisplayName = "User 02", UserName = "vinh.xuan", Email = "xuanvinh9999@gmail.com", Password = "123456", CreatedAt = DateTime.Now }
+            new User { Id = 1, IsActive = true, DisplayName = "User 01", UserName = "vinh.nguyen", Email = "vinhnx9999@gmail.com", Password = "P@ssw0rd", CreatedAt = DateTime.UtcNow },
+            new User { Id = 2, IsActive = true, DisplayName = "User 02", UserName = "vinh.xuan", Email = "xuanvinh9999@gmail.com", Password = "P@ssw0rd", CreatedAt = DateTime.UtcNow }
         );
     }
 }

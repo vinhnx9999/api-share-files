@@ -1,8 +1,7 @@
-﻿namespace VinhSharingFiles.APIs.Models
+﻿namespace VinhSharingFiles.APIs.Models;
+
+public record ActivateUserNameModel
 {
-    public record ActivateUserNameModel
-    {
-        public required string UserName { get; set; }
-        public required string ActiveCode { get; set; }
-    }
+    public required string UserName { get; set; }
+    public required string ActiveCode { get; set; }
 }

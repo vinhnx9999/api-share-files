@@ -1,8 +1,7 @@
-﻿namespace VinhSharingFiles.APIs.Models
+﻿namespace VinhSharingFiles.APIs.Models;
+
+public record TextFileModel
 {
-    public record TextFileModel
-    {
-        public required string TextData { get; set; }
-        public bool? DeleteAfterAccessed { get; set; } = false;
-    }
+    public required string TextData { get; set; }
+    public bool? DeleteAfterAccessed { get; set; } = false;
 }
