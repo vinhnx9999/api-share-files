@@ -8,59 +8,58 @@ using VinhSharingFiles.Application.Services;
 using VinhSharingFiles.Infrastructure.Data;
 using VinhSharingFiles.Infrastructure.Repositories;
 
-namespace VinhSharingFiles.APIs.Extensions
+namespace VinhSharingFiles.APIs.Extensions;
+
+public static class ServiceCollectionExtensions
 {
-    public static class ServiceCollectionExtensions
+    public static IServiceCollection AddDefaultAWSOptions(this IServiceCollection services, AWSOptions options)
     {
-        public static IServiceCollection AddDefaultAWSOptions(this IServiceCollection services, AWSOptions options)
+        services.Add(new ServiceDescriptor(typeof(AWSOptions), options));
+        return services;
+    }
+
+    public static IServiceCollection AddDefaultAWSOptions(this IServiceCollection collection, Func<IServiceProvider, AWSOptions> implementationFactory, ServiceLifetime lifetime = ServiceLifetime.Singleton)
+    {
+        collection.Add(new ServiceDescriptor(typeof(AWSOptions), implementationFactory, lifetime));
+        return collection;
+    }
+
+    //public static IServiceCollection AddAWSService<T>(this IServiceCollection collection, ServiceLifetime lifetime = ServiceLifetime.Singleton) where T : IAmazonService
+    //{
+    //    return collection.AddAWSService<T>(null, lifetime);
+    //}
+
+    public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        //services.AddDefaultAWSOptions(configuration.GetAWSOptions());
+        services.AddAWSService<IAmazonS3>();
+
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IFileSharingRepository, FileSharingRepository>();
+
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IAuthorizationService, AuthorizationService>();
+        services.AddScoped<ICloudService, AmazonS3Service>();
+    }
+
+    public static void AddDbContextServices(this IServiceCollection services, IConfiguration configuration)
+    {
+        var useInMemoryDB = configuration.GetValue<bool>("UseInMemoryDB");
+        if (useInMemoryDB)
         {
-            services.Add(new ServiceDescriptor(typeof(AWSOptions), options));
-            return services;
+            // we could have written that logic here but as per clean architecture, we are separating these into their own piece of code
+            services.AddInMemoryDatabase();
         }
-
-        public static IServiceCollection AddDefaultAWSOptions(this IServiceCollection collection, Func<IServiceProvider, AWSOptions> implementationFactory, ServiceLifetime lifetime = ServiceLifetime.Singleton)
+        else
         {
-            collection.Add(new ServiceDescriptor(typeof(AWSOptions), implementationFactory, lifetime));
-            return collection;
-        }
-
-        //public static IServiceCollection AddAWSService<T>(this IServiceCollection collection, ServiceLifetime lifetime = ServiceLifetime.Singleton) where T : IAmazonService
-        //{
-        //    return collection.AddAWSService<T>(null, lifetime);
-        //}
-
-        public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-        {
-            //services.AddDefaultAWSOptions(configuration.GetAWSOptions());
-            services.AddAWSService<IAmazonS3>();
-
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IFileSharingRepository, FileSharingRepository>();
-
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IAuthorizationService, AuthorizationService>();
-            services.AddScoped<ICloudService, AmazonS3Service>();
-        }
-
-        public static void AddDbContextServices(this IServiceCollection services, IConfiguration configuration)
-        {
-            var useInMemoryDB = configuration.GetValue<bool>("UseInMemoryDB");
-            if (useInMemoryDB)
+            //use this for real database on your sql server
+            services.AddDbContext<VinhSharingDbContext>(options =>
             {
-                // we could have written that logic here but as per clean architecture, we are separating these into their own piece of code
-                services.AddInMemoryDatabase();
-            }
-            else
-            {
-                //use this for real database on your sql server
-                services.AddDbContext<VinhSharingDbContext>(options =>
-                {
-                    options.UseSqlServer(
-                        configuration.GetConnectionString("DefaultConnection"),
-                        providerOptions => providerOptions.EnableRetryOnFailure()
-                    );
-                });
-            }
+                options.UseSqlServer(
+                    configuration.GetConnectionString("DefaultConnection"),
+                    providerOptions => providerOptions.EnableRetryOnFailure()
+                );
+            });
         }
     }
 }

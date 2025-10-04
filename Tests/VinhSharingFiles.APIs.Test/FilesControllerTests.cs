@@ -89,7 +89,6 @@ public class FilesControllerTests
 
         // Assert
         Assert.IsType<OkObjectResult>(result);
-        var okResult = Assert.IsType<OkObjectResult>(result);
     }
 
     [Fact]
@@ -132,6 +131,5 @@ public class FilesControllerTests
 
         // Assert
         Assert.IsType<OkObjectResult>(result);
-        var okResult = Assert.IsType<OkObjectResult>(result);
     }
 }
