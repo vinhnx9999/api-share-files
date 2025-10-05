@@ -1,4 +1,5 @@
-﻿using VinhSharingFiles.Domain.SysVariables;
+﻿using System.Globalization;
+using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Utilities;
 
@@ -12,7 +13,7 @@ public static class SensitiveDataChecker
         if (text.Length < FileVariables.MAX_LENGTH_STORE_TEXT_IN_DB)
         {
             // Check for sensitive keywords
-            string lowerText = text.ToLower();
+            string lowerText = text.ToLower(new CultureInfo("en-US", false));
             return lowerText.Contains("password") ||
                    lowerText.Contains("ssn") ||
                    lowerText.Contains("email") ||

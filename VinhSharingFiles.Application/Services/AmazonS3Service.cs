@@ -323,7 +323,7 @@ public class AmazonS3Service : ICloudService
             Key = file.FileName,
         };
 
-        InitiateMultipartUploadResponse initiateResponse = null;
+        InitiateMultipartUploadResponse? initiateResponse = null;
         try
         {
             initiateResponse = await _s3Client.InitiateMultipartUploadAsync(initiateRequest);
@@ -420,4 +420,5 @@ public class AmazonS3Service : ICloudService
     }
     
     #endregion
+
 }
