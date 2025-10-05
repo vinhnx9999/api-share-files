@@ -3,32 +3,87 @@
   "WorkspaceRootPath": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\utilities\\sensitivedatachecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:utilities\\sensitivedatachecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\utilities\\idencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:utilities\\idencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\repositories\\filesharingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\amazons3service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\sysvariables\\filevariables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\dtos\\filedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}|..\\Tests\\VinhSharingFiles.Infrastructure.Test\\VinhSharingFiles.Infrastructure.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.infrastructure.test\\filesharingrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\dtos\\fileobjectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77EDCC3A-0C99-49F7-B7EA-DDAE006FF201}|..\\Tests\\VinhSharingFiles.Application.Test\\VinhSharingFiles.Application.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.application.test\\amazons3servicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F774DCF-1C74-4672-B443-77176A617521}|..\\Tests\\VinhSharingFiles.APIs.Test\\VinhSharingFiles.APIs.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.apis.test\\filescontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F774DCF-1C74-4672-B443-77176A617521}|..\\Tests\\VinhSharingFiles.APIs.Test\\VinhSharingFiles.APIs.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.apis.test\\documentscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\encryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\authorizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\sysvariables\\securityclaims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\extensions\\jwtsecurityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:extensions\\jwtsecurityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\extensions\\configurationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:extensions\\configurationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F774DCF-1C74-4672-B443-77176A617521}|..\\Tests\\VinhSharingFiles.APIs.Test\\VinhSharingFiles.APIs.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.apis.test\\filescontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\sysvariables\\awsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\repositories\\filesharingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\data\\vinhsharingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -38,12 +93,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{002A6E05-A62A-493C-8A18-3255A7351532}|..\\VinhSharingFiles.Infrastructure\\VinhSharingFiles.Infrastructure.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.infrastructure\\configurations\\filesharingconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\sysvariables\\securityclaims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\sysvariables\\awsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -61,37 +110,8 @@
       "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\dtos\\tokeninfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\dtos\\fileobjectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2E6BFC3-042D-48A9-8C50-DF67D7259EBC}|..\\VinhSharingFiles.Domain\\VinhSharingFiles.Domain.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.domain\\dtos\\filedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\encryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\amazons3service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C726C773-A1BF-489F-BB47-A0C644FE83E6}|..\\VinhSharingFiles.Application\\VinhSharingFiles.Application.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.application\\services\\authorizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|solutionrelative:controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F9F3542-657F-4E47-8065-D4D00CF13030}|VinhSharingFiles.APIs.csproj|d:\\containerization\\vinhsharingfiles\\vinhsharingfiles.apis\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -101,19 +121,10 @@
       "AbsoluteMoniker": "D:0:0:{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}|..\\Tests\\VinhSharingFiles.Infrastructure.Test\\VinhSharingFiles.Infrastructure.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.infrastructure.test\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}|..\\Tests\\VinhSharingFiles.Infrastructure.Test\\VinhSharingFiles.Infrastructure.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.infrastructure.test\\filesharingrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{77EDCC3A-0C99-49F7-B7EA-DDAE006FF201}|..\\Tests\\VinhSharingFiles.Application.Test\\VinhSharingFiles.Application.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.application.test\\userservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77EDCC3A-0C99-49F7-B7EA-DDAE006FF201}|..\\Tests\\VinhSharingFiles.Application.Test\\VinhSharingFiles.Application.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.application.test\\amazons3servicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7F774DCF-1C74-4672-B443-77176A617521}|..\\Tests\\VinhSharingFiles.APIs.Test\\VinhSharingFiles.APIs.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.apis.test\\usercontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F774DCF-1C74-4672-B443-77176A617521}|..\\Tests\\VinhSharingFiles.APIs.Test\\VinhSharingFiles.APIs.Test.csproj|d:\\containerization\\vinhsharingfiles\\tests\\vinhsharingfiles.apis.test\\documentscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -123,62 +134,323 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IdEncryptor.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Utilities\\IdEncryptor.cs",
+              "RelativeDocumentMoniker": "Utilities\\IdEncryptor.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Utilities\\IdEncryptor.cs",
+              "RelativeToolTip": "Utilities\\IdEncryptor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:49:47.165Z",
+              "WhenOpened": "2025-10-05T08:10:33.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AmazonS3Service.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:23.678Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAAwH4AAAAtAAAAAAAAAA==",
+              "Title": "FileDto.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwAoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:43:51.875Z",
+              "WhenOpened": "2025-10-04T14:42:41.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "FileVariables.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\FileVariables.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\SysVariables\\FileVariables.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\FileVariables.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\SysVariables\\FileVariables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwAIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T07:40:11.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileSharingRepository.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAmwB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:43:45.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SensitiveDataChecker.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Utilities\\SensitiveDataChecker.cs",
+              "RelativeDocumentMoniker": "Utilities\\SensitiveDataChecker.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Utilities\\SensitiveDataChecker.cs",
+              "RelativeToolTip": "Utilities\\SensitiveDataChecker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T07:40:15.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FileSharingRepositoryTests.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
+              "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
+              "RelativeToolTip": "..\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAmwCEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:41:15.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FileObjectDto.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA4wAkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:43.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FilesController.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\FilesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FilesController.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\FilesController.cs",
+              "RelativeToolTip": "Controllers\\FilesController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAcwEYAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T13:38:17.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DocumentsController.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\DocumentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DocumentsController.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\DocumentsController.cs",
+              "RelativeToolTip": "Controllers\\DocumentsController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwB0AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T13:38:31.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AmazonS3ServiceTests.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
+              "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
+              "RelativeToolTip": "..\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAcwEsAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:41:08.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "FilesControllerTests.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\FilesControllerTests.cs",
               "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.APIs.Test\\FilesControllerTests.cs",
               "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\FilesControllerTests.cs",
               "RelativeToolTip": "..\\Tests\\VinhSharingFiles.APIs.Test\\FilesControllerTests.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAEwIUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAIwCIAAAB8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T13:38:55.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FileSharingRepository.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Infrastructure\\Repositories\\FileSharingRepository.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "DocumentsControllerTests.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
+              "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
+              "RelativeToolTip": "..\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAkwEgAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:43:45.188Z"
+              "WhenOpened": "2025-10-04T14:05:40.15Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
+              "Title": "EncryptionService.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:34.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\UserService.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\UserService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA5wBgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:37.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:32.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AuthorizationService.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:27.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SecurityClaims.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:43:16.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "JwtSecurityExtensions.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\JwtSecurityExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\JwtSecurityExtensions.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\JwtSecurityExtensions.cs",
+              "RelativeToolTip": "Extensions\\JwtSecurityExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:02.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:42:06.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ConfigurationExtensions.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ConfigurationExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\ConfigurationExtensions.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ConfigurationExtensions.cs",
+              "RelativeToolTip": "Extensions\\ConfigurationExtensions.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:41:57.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:43:29.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AwsConfiguration.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:43:14.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T14:49:47.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "FileSharingConfiguration.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Configurations\\FileSharingConfiguration.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Configurations\\FileSharingConfiguration.cs",
@@ -190,58 +462,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConfigurationExtensions.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ConfigurationExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\ConfigurationExtensions.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ConfigurationExtensions.cs",
-              "RelativeToolTip": "Extensions\\ConfigurationExtensions.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAArAAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "..\\VinhSharingFiles.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAAwH4AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:41:57.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T14:43:51.875Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JwtSecurityExtensions.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\JwtSecurityExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\JwtSecurityExtensions.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\JwtSecurityExtensions.cs",
-              "RelativeToolTip": "Extensions\\JwtSecurityExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:02.322Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\ServiceCollectionExtensions.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "Extensions\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:06.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserConfiguration.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Infrastructure\\Configurations\\UserConfiguration.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:43:29.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 26,
               "Title": "AppDbContextFactory.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Data\\AppDbContextFactory.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Data\\AppDbContextFactory.cs",
@@ -253,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 25,
               "Title": "VinhSharingDbContext.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Infrastructure\\Data\\VinhSharingDbContext.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Infrastructure\\Data\\VinhSharingDbContext.cs",
@@ -265,31 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SecurityClaims.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\SysVariables\\SecurityClaims.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:43:16.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AwsConfiguration.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\SysVariables\\AwsConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:43:14.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 28,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\Entities\\User.cs",
@@ -301,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 30,
               "Title": "FileSharing.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\Entities\\FileSharing.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\Entities\\FileSharing.cs",
@@ -313,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 29,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\Entities\\BaseEntity.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\Entities\\BaseEntity.cs",
@@ -325,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 31,
               "Title": "UserInfoDto.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\UserInfoDto.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\DTOs\\UserInfoDto.cs",
@@ -337,7 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 32,
               "Title": "TokenInfoDto.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\TokenInfoDto.cs",
               "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\DTOs\\TokenInfoDto.cs",
@@ -349,91 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "FileObjectDto.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\DTOs\\FileObjectDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:43.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "FileDto.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Domain\\DTOs\\FileDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:41.096Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\UserService.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:37.03Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "EncryptionService.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\EncryptionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:34.671Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "EmailSender.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\EmailSender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:32.725Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AuthorizationService.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\AuthorizationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:27.773Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AmazonS3Service.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
-              "RelativeDocumentMoniker": "..\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
-              "RelativeToolTip": "..\\VinhSharingFiles.Application\\Services\\AmazonS3Service.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:42:23.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "BaseController.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\BaseController.cs",
               "RelativeDocumentMoniker": "Controllers\\BaseController.cs",
@@ -445,31 +570,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "DocumentsController.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\DocumentsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DocumentsController.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\DocumentsController.cs",
-              "RelativeToolTip": "Controllers\\DocumentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T13:38:31.972Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "FilesController.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\FilesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\FilesController.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\FilesController.cs",
-              "RelativeToolTip": "Controllers\\FilesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T13:38:17.441Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\VinhSharingFiles.APIs\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -481,7 +582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "UserRepositoryTests.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Infrastructure.Test\\UserRepositoryTests.cs",
               "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.Infrastructure.Test\\UserRepositoryTests.cs",
@@ -493,19 +594,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "FileSharingRepositoryTests.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
-              "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
-              "RelativeToolTip": "..\\Tests\\VinhSharingFiles.Infrastructure.Test\\FileSharingRepositoryTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:41:15.867Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "UserServiceTests.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Application.Test\\UserServiceTests.cs",
               "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.Application.Test\\UserServiceTests.cs",
@@ -517,19 +606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "AmazonS3ServiceTests.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
-              "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
-              "RelativeToolTip": "..\\Tests\\VinhSharingFiles.Application.Test\\AmazonS3ServiceTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:41:08.487Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "UserControllerTests.cs",
               "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\UserControllerTests.cs",
               "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.APIs.Test\\UserControllerTests.cs",
@@ -537,19 +614,8 @@
               "RelativeToolTip": "..\\Tests\\VinhSharingFiles.APIs.Test\\UserControllerTests.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T13:43:48.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "DocumentsControllerTests.cs",
-              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
-              "RelativeDocumentMoniker": "..\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
-              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
-              "RelativeToolTip": "..\\Tests\\VinhSharingFiles.APIs.Test\\DocumentsControllerTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T14:05:40.15Z"
+              "WhenOpened": "2025-10-04T13:43:48.676Z",
+              "EditorCaption": ""
             }
           ]
         }

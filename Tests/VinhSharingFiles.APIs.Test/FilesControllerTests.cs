@@ -6,6 +6,7 @@ using VinhSharingFiles.APIs.Controllers;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Test;
 
@@ -31,7 +32,7 @@ public class FilesControllerTests
         // Arrange
         string fileId = "2rPwjW0379";
 
-        var newItem = new FileObjectDto { FileId = 3, Description = "New Task", ContentType = "STORE_TEXT_IN_DB" };
+        var newItem = new FileObjectDto { FileId = 3, Description = "New Task", ContentType = FileVariables.STORE_TEXT_IN_DB };
         var testContent = "This is some test content for the file.";
         var testBytes = System.Text.Encoding.UTF8.GetBytes(testContent);
         var memoryStream = new MemoryStream(testBytes);
@@ -65,7 +66,7 @@ public class FilesControllerTests
             DeleteAfterAccessed = true
         };
 
-        _mockService.Setup(service => service.UploadTextFileAsync(userId, model.TextData, model.DeleteAfterAccessed)).ReturnsAsync(4);
+        _mockService.Setup(service => service.UploadTextFileAsync(userId, model.TextData, model.DeleteAfterAccessed, false)).ReturnsAsync(4);
 
         // Mock the claims data
         var claims = new List<Claim>

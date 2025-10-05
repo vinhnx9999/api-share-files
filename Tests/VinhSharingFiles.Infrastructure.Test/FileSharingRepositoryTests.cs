@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using VinhSharingFiles.Domain.Entities;
+using VinhSharingFiles.Domain.SysVariables;
 using VinhSharingFiles.Infrastructure.Data;
 using VinhSharingFiles.Infrastructure.Repositories;
 
@@ -30,8 +31,8 @@ public class FileSharingRepositoryTests
         //{
         //    Id = 1,
         //    DisplayName = $"file-{Guid.NewGuid()}-demo.txt",
-        //    FileName = "STORE_TEXT_IN_DB",
-        //    FileType = "STORE_TEXT_IN_DB",            
+        //    FileName = FileVariables.STORE_TEXT_IN_DB,
+        //    FileType = FileVariables.STORE_TEXT_IN_DB,            
         //    AutoDelete = true,
         //    Description = "File demo description",
         //    UserId = userTestId,
@@ -56,7 +57,7 @@ public class FileSharingRepositoryTests
         {
             Id = 1,
             DisplayName = $"file-{Guid.NewGuid()}.txt",
-            FileName = "STORE_TEXT_IN_DB",
+            FileName = FileVariables.STORE_TEXT_IN_DB,
             AutoDelete = true,
             Description = "File demo description",
             UserId = userTestId,
@@ -67,7 +68,7 @@ public class FileSharingRepositoryTests
         {
             Id = 2,
             DisplayName = $"file-{Guid.NewGuid()}02.txt",
-            FileName = "STORE_TEXT_IN_DB",
+            FileName = FileVariables.STORE_TEXT_IN_DB,
             AutoDelete = true,
             Description = "File demo description",
             UserId = userTestId,
@@ -92,7 +93,7 @@ public class FileSharingRepositoryTests
         {
             Id = 5,
             DisplayName = $"file-{Guid.NewGuid()}05.txt",
-            FileName = "STORE_TEXT_IN_DB",
+            FileName = FileVariables.STORE_TEXT_IN_DB,
             AutoDelete = true,
             Description = "File demo description",
             UserId = userTestId,
@@ -120,7 +121,7 @@ public class FileSharingRepositoryTests
         {
             Id = 4,
             DisplayName = $"file-{Guid.NewGuid()}04.txt",
-            FileName = "STORE_TEXT_IN_DB",
+            FileName = FileVariables.STORE_TEXT_IN_DB,
             AutoDelete = true,
             Description = "File demo description",
             UserId = userTestId,

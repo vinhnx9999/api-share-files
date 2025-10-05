@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.APIs.Utilities;
 using VinhSharingFiles.Application.Interfaces;
+using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Controllers;
 
@@ -29,7 +30,8 @@ public class FilesController(IHttpContextAccessor httpContextAccessor, ICloudSer
     public async Task<IActionResult> UploadTextFileAsync([FromBody] TextFileModel model)
     {
         int userId = GetUserId();
-        var fileUploadedId = await _cloudService.UploadTextFileAsync(userId, model.TextData, model.DeleteAfterAccessed);
+        bool isSensitive = model.TextData.SensitiveKeywords();
+        var fileUploadedId = await _cloudService.UploadTextFileAsync(userId, model.TextData, model.DeleteAfterAccessed, isSensitive);
         string urlUploaded = IdEncryptor.EncryptId(fileUploadedId);
 
         return Ok(new
@@ -50,7 +52,7 @@ public class FilesController(IHttpContextAccessor httpContextAccessor, ICloudSer
             await _cloudService.DownloadFileAsync(fileId) :
             await _cloudService.PreviewFileAsync(fileId);
 
-        if (fileObj.ContentType == "STORE_TEXT_IN_DB")
+        if (fileObj.ContentType == FileVariables.STORE_TEXT_IN_DB)
         {
             return Ok(new
             {
@@ -66,7 +68,7 @@ public class FilesController(IHttpContextAccessor httpContextAccessor, ICloudSer
     {
         int fileId = IdEncryptor.DecryptId(id);
         var fileObj = await _cloudService.DownloadFileAsync(fileId);
-        if (fileObj.ContentType == "STORE_TEXT_IN_DB")
+        if (fileObj.ContentType == FileVariables.STORE_TEXT_IN_DB)
         {
             return Ok(new
             {

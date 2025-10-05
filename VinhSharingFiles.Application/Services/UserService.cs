@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using VinhSharingFiles.Application.Interfaces;
+﻿using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using VinhSharingFiles.APIs.Utilities;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Controllers;
 
@@ -26,7 +27,7 @@ public class DocumentsController(IHttpContextAccessor httpContextAccessor, IClou
     {
         int fileId = IdEncryptor.DecryptId(id);
         var fileObj = await _cloudService.PreviewFileAsync(fileId);
-        if (fileObj.ContentType == "STORE_TEXT_IN_DB")
+        if (fileObj.ContentType == FileVariables.STORE_TEXT_IN_DB)
         {
             return Ok(new
             {

@@ -4,6 +4,7 @@ using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Application.Services;
 using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
+using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.Application.Test;
 
@@ -57,7 +58,7 @@ public class AmazonS3ServiceTests
     public async Task PreviewFile_ReturnsItemAsync()
     {
         // Arrange
-        var expectedItem = new FileSharing { Id = 1, FileName = "STORE_TEXT_IN_DB", Description = "Description 1" };
+        var expectedItem = new FileSharing { Id = 1, FileName = FileVariables.STORE_TEXT_IN_DB, Description = "Description 1" };
         _mockRepository.Setup(repo => repo.GetFileByIdAsync(1)).ReturnsAsync(expectedItem);
 
         // Act
@@ -72,7 +73,7 @@ public class AmazonS3ServiceTests
     public async Task DownloadFile_ReturnsItemAsync()
     {
         // Arrange
-        var expectedItem = new FileSharing { Id = 1, FileName = "STORE_TEXT_IN_DB", Description = "Description 1" };
+        var expectedItem = new FileSharing { Id = 1, FileName = FileVariables.STORE_TEXT_IN_DB, Description = "Description 1" };
         _mockRepository.Setup(repo => repo.GetFileByIdAsync(1)).ReturnsAsync(expectedItem);
 
         // Act

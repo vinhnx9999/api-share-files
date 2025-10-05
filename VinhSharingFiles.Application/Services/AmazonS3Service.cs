@@ -17,7 +17,6 @@ public class AmazonS3Service : ICloudService
     private readonly IConfiguration _configuration;
     private readonly AwsConfiguration _awsConfig;
     private readonly IFileSharingRepository _fileRepository;
-    private readonly int MAX_LENGTH_STORE_TEXT_IN_DB = 2500;
     // Or configure with specific region and credentials
     private readonly IAmazonS3 _s3Client;
 
@@ -63,13 +62,13 @@ public class AmazonS3Service : ICloudService
         // Logic to get the file name from your database using the fileId
         var fileRecord = await _fileRepository.GetFileByIdAsync(fileId) ?? throw new Exception("File not found in the database.");
 
-        if (fileRecord.FileName == "STORE_TEXT_IN_DB")
+        if (fileRecord.FileName == FileVariables.STORE_TEXT_IN_DB)
         {
             return new FileObjectDto
             {                    
-                ContentType = "STORE_TEXT_IN_DB",
+                ContentType = FileVariables.STORE_TEXT_IN_DB,
                 FileId = fileId,
-                Name = "STORE_TEXT_IN_DB", //This is the display file name
+                Name = FileVariables.STORE_TEXT_IN_DB, //This is the display file name
                 Description = fileRecord.Description // This is the text stored
             };
         }
@@ -109,47 +108,17 @@ public class AmazonS3Service : ICloudService
         }
     }
 
-    private async Task CreatingBucket()
-    {
-        try
-        {
-            // Optionally, set other properties, e.g., CannedACL = S3CannedACL.Private
-            var putBucketRequest = new PutBucketRequest
-            {
-                BucketName = _awsConfig.BucketName,
-                //CannedACL = S3CannedACL.Private, // Set the access control list
-                BucketRegion = _awsConfig.Region // Explicitly set the region
-            };
-
-            PutBucketResponse response = await _s3Client.PutBucketAsync(putBucketRequest);
-            if (response.HttpStatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new ArgumentException($"Failed to create bucket '{_awsConfig.BucketName}'. Status code: {response.HttpStatusCode}");
-            }
-
-            Console.WriteLine($"Bucket '{_awsConfig.BucketName}' created successfully.");
-        }
-        catch (AmazonS3Exception e)
-        {
-            Console.WriteLine($"Error creating bucket: {e.Message}");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"An unexpected error occurred: {e.Message}");
-        }
-    }
-
     public async Task<FileObjectDto> DownloadFileAsync(int fileId)
     {
         // Logic to get the file name from your database using the fileId
         var fileRecord = await _fileRepository.GetFileByIdAsync(fileId) ?? throw new Exception("File not found in the database.");
-        if (fileRecord.FileName == "STORE_TEXT_IN_DB")
+        if (fileRecord.FileName == FileVariables.STORE_TEXT_IN_DB)
         {
             return new FileObjectDto
             {
-                ContentType = "STORE_TEXT_IN_DB",
+                ContentType = FileVariables.STORE_TEXT_IN_DB,
                 FileId = fileId,
-                Name = "STORE_TEXT_IN_DB", //This is the display file name
+                Name = FileVariables.STORE_TEXT_IN_DB, //This is the display file name
                 Description = fileRecord.Description // This is the text stored
             };
         }
@@ -198,17 +167,12 @@ public class AmazonS3Service : ICloudService
 
     public async Task<int> UploadFileAsync(int userId, IFormFile file, bool? deleteAfterDownload)
     {
-        ////Add metadata to file 
-        //string newDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        var fileSize = file.Length;
+        if (fileSize > FileVariables.MAX_FILE_SIZE_IN_MB * 1024 * 1024)
+        {            
+            return await MultipartUploadAsync(userId, file, deleteAfterDownload);
+        }
 
-        //// Initiate the upload.
-        //InitiateMultipartUploadResponse initResponse = await s3Client.InitiateMultipartUploadAsync(initiateRequest);
-        //int uploadmb = 5;
-
-        //// Upload parts.
-        //long contentLength = new FileInfo(zippath).Length;
-        //long partSize = uploadmb * (long)Math.Pow(2, 20); // 5 MB  
-        
         await using var newMemoryStream = new MemoryStream();
         file.CopyTo(newMemoryStream);
 
@@ -227,9 +191,9 @@ public class AmazonS3Service : ICloudService
     }
 
     //Create a text file and upload
-    public async Task<int> UploadTextFileAsync(int userId, string contentToStore, bool? deleteAfterAccessed)
+    public async Task<int> UploadTextFileAsync(int userId, string contentToStore, bool? deleteAfterAccessed, bool isSensitive)
     {
-        if ((contentToStore ?? "").Length < MAX_LENGTH_STORE_TEXT_IN_DB)
+        if (!isSensitive)
         {
             return await SaveTextToDatabase(userId, contentToStore, deleteAfterAccessed);
         }
@@ -256,6 +220,7 @@ public class AmazonS3Service : ICloudService
 
             // You can optionally set the content type, e.g., "text/plain".
             return await SaveFileToDatabase(userId, fileName, "text/plain", 0, deleteAfterAccessed);
+
         }
         catch (AmazonS3Exception e)
         {
@@ -269,6 +234,8 @@ public class AmazonS3Service : ICloudService
         return 0;
     }
 
+    #region Private Methods
+    
     private async Task<int> SaveTextToDatabase(int userId, string? contentToStore, bool? deleteAfterAccessed)
     {
         // Save file info to database
@@ -276,8 +243,8 @@ public class AmazonS3Service : ICloudService
         {
             Id = 0,
             UserId = userId,
-            DisplayName = "STORE_TEXT_IN_DB",
-            FileName = "STORE_TEXT_IN_DB",
+            DisplayName = FileVariables.STORE_TEXT_IN_DB,
+            FileName = FileVariables.STORE_TEXT_IN_DB,
             FileType = "",
             FilePath = "",
             FileSize = 0,
@@ -315,4 +282,142 @@ public class AmazonS3Service : ICloudService
         return fileId;
     }
 
+    private async Task CreatingBucket()
+    {
+        try
+        {
+            // Optionally, set other properties, e.g., CannedACL = S3CannedACL.Private
+            var putBucketRequest = new PutBucketRequest
+            {
+                BucketName = _awsConfig.BucketName,
+                //CannedACL = S3CannedACL.Private, // Set the access control list
+                BucketRegion = _awsConfig.Region // Explicitly set the region
+            };
+
+            PutBucketResponse response = await _s3Client.PutBucketAsync(putBucketRequest);
+            if (response.HttpStatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new ArgumentException($"Failed to create bucket '{_awsConfig.BucketName}'. Status code: {response.HttpStatusCode}");
+            }
+
+            Console.WriteLine($"Bucket '{_awsConfig.BucketName}' created successfully.");
+        }
+        catch (AmazonS3Exception e)
+        {
+            Console.WriteLine($"Error creating bucket: {e.Message}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"An unexpected error occurred: {e.Message}");
+        }
+    }
+    
+    private const string FilePath = "path/to/your/large-file.bin";
+
+    private async Task<int> MultipartUploadAsync(int userId, IFormFile file, bool? deleteAfterDownload)
+    {
+        // 1. Initiate the multipart upload
+        InitiateMultipartUploadRequest initiateRequest = new()
+        {
+            BucketName = _awsConfig.BucketName, // "your-bucket-name"
+            Key = file.FileName,
+        };
+
+        InitiateMultipartUploadResponse initiateResponse = null;
+        try
+        {
+            initiateResponse = await _s3Client.InitiateMultipartUploadAsync(initiateRequest);
+            string uploadId = initiateResponse.UploadId;
+            Console.WriteLine($"Initiated multipart upload with ID: {uploadId}");
+
+            // 3. Upload the individual parts
+            var uploadParts = await UploadPartsAsync(uploadId, file.FileName);
+
+            // 4. Complete the multipart upload
+            await CompleteUploadAsync(uploadId, file.FileName, uploadParts);
+
+            Console.WriteLine("Multipart upload completed successfully.");
+
+            return await SaveFileToDatabase(userId, file.FileName, file.ContentType, file.Length, deleteAfterDownload);
+        }
+        catch (AmazonS3Exception e)
+        {
+            Console.WriteLine($"S3 error: {e.Message}");
+            if (initiateResponse != null)
+            {
+                // In case of an error, abort the upload to clean up resources
+                await AbortUploadAsync(initiateResponse.UploadId, file.FileName);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Unknown error: {e.Message}");
+        }
+
+        return 0;
+    }
+
+    private async Task<PartETag[]> UploadPartsAsync(string uploadId, string fileName)
+    {
+        // 5 MB (minimum part size is 5 MB, except for the last part)
+        const long partSize = FileVariables.PART_SIZE_UPLOADING_IN_MB * 1024 * 1024; 
+        
+        List<PartETag> uploadParts = [];
+        long filePosition = 0;
+        int partNumber = 1;
+
+        using (var fileStream = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+        {
+            while (filePosition < fileStream.Length)
+            {
+                long bytesToRead = Math.Min(partSize, fileStream.Length - filePosition);
+                var uploadPartRequest = new UploadPartRequest
+                {
+                    BucketName = _awsConfig.BucketName, // "your-bucket-name"
+                    Key = fileName,
+                    UploadId = uploadId,
+                    PartNumber = partNumber,
+                    FilePosition = filePosition,
+                    InputStream = fileStream,
+                    PartSize = bytesToRead
+                };
+
+                var uploadPartResponse = await _s3Client.UploadPartAsync(uploadPartRequest);
+                uploadParts.Add(new PartETag(partNumber, uploadPartResponse.ETag));
+
+                Console.WriteLine($"Uploaded part {partNumber}. ETag: {uploadPartResponse.ETag}");
+                filePosition += bytesToRead;
+                partNumber++;
+            }
+        }
+        return [.. uploadParts];
+    }
+
+    private async Task CompleteUploadAsync(string uploadId, string fileName, PartETag[] partTags)
+    {
+        var completeRequest = new CompleteMultipartUploadRequest
+        {
+            BucketName = _awsConfig.BucketName, // "your-bucket-name"
+            Key = fileName,
+            UploadId = uploadId,
+            PartETags = [.. partTags]
+        };
+
+        await _s3Client.CompleteMultipartUploadAsync(completeRequest);
+    }
+
+    private async Task AbortUploadAsync(string uploadId, string fileName)
+    {
+        var abortRequest = new AbortMultipartUploadRequest
+        {
+            BucketName = _awsConfig.BucketName, // "your-bucket-name"
+            Key = fileName,
+            UploadId = uploadId
+        };
+
+        await _s3Client.AbortMultipartUploadAsync(abortRequest);
+        Console.WriteLine($"Aborted multipart upload with ID: {uploadId}");
+    }
+    
+    #endregion
 }

@@ -1,7 +1,8 @@
-﻿using VinhSharingFiles.Infrastructure.Data;
+﻿using Microsoft.EntityFrameworkCore;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+using VinhSharingFiles.Domain.SysVariables;
+using VinhSharingFiles.Infrastructure.Data;
 
 namespace VinhSharingFiles.Infrastructure.Repositories;
 
@@ -13,7 +14,7 @@ public class FileSharingRepository(VinhSharingDbContext context) : IFileSharingR
     {
         try
         {
-            if (fileInfo.FileName != "STORE_TEXT_IN_DB")
+            if (fileInfo.FileName != FileVariables.STORE_TEXT_IN_DB)
             {
                 var existingFile = await _context.FileSharings.FirstOrDefaultAsync(f => f.FileName == fileInfo.FileName && f.UserId == fileInfo.UserId);
                 if (existingFile != null)
