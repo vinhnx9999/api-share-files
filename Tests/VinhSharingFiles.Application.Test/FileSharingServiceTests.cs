@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Configuration;
 using Moq;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Application.Services;
@@ -6,7 +5,6 @@ using VinhSharingFiles.Domain.Entities;
 using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.Application.Test;
-
 public class FileSharingServiceTests
 {
     private readonly Mock<IFileSharingRepository> _mockRepository;
@@ -17,20 +15,6 @@ public class FileSharingServiceTests
     {
         _mockRepository = new Mock<IFileSharingRepository>();
         _externalService = new Mock<IExternalService>();
-
-        var inMemorySettings = new Dictionary<string, string>
-        {
-            {"MySettingKey", "InMemoryValue"},
-            {"AWS:AccessKey", "AccessKey"},
-            {"AWS:SecretKey", "SecretKey"},
-            {"AWS:Region", "Region"},
-            {"AWS:BucketName", "BucketName"}
-        };
-
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddInMemoryCollection(inMemorySettings)
-            .Build();
-
         _service = new FileSharingService(_externalService.Object, _mockRepository.Object);
     }
 

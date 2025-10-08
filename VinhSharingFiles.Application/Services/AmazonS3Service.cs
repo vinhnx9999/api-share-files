@@ -47,24 +47,24 @@ public class AmazonS3Service : IExternalService
     }
 
     public async Task<Stream> DownloadFileAsync(string fileName)
-    {
-        try
+    {        
+        var request = new GetObjectRequest
         {
-            // Fetch the file from S3
-            var s3Object = await _s3Client.GetObjectAsync(_awsConfig.BucketName, fileName);
-            return s3Object.ResponseStream; // This is the stream containing the file data
+            BucketName = _awsConfig.BucketName,
+            Key = fileName
+        };
+
+        using GetObjectResponse response = await _s3Client.GetObjectAsync(request);
+        if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+        {
+            var memoryStream = new MemoryStream();
+            await response.ResponseStream.CopyToAsync(memoryStream);
+            memoryStream.Position = 0; // Reset stream position for reading
+            return memoryStream;
         }
-        catch (AmazonS3Exception e)
+        else
         {
-            // Handle S3 specific exceptions (e.g., file not found, access denied)
-            Console.WriteLine($"Error getting object: {e.Message}");
-            throw;
-        }
-        catch (Exception e)
-        {
-            // Handle other general exceptions
-            Console.WriteLine($"Error: {e.Message}");
-            throw;
+            throw new AmazonS3Exception($"Error downloading file: {response.HttpStatusCode}");
         }
     }
 

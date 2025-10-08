@@ -85,7 +85,7 @@ public class DocumentsControllerTests
             });
 
         // Act
-        var result = await _controller.PreviewFileByIdAsync(fileId);
+        var result = await _controller.GetFileByIdAsync(fileId);
 
         // Assert
         Assert.IsType<OkObjectResult>(result);

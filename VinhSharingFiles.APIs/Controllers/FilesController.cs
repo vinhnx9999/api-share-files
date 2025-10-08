@@ -43,7 +43,7 @@ public class FilesController(IHttpContextAccessor httpContextAccessor, IFileShar
 
     [HttpGet("{id}")]
     [AllowAnonymous]
-    public async Task<IActionResult> PreviewFileByIdAsync(string id)
+    public async Task<IActionResult> GetFileByIdAsync(string id)
     {
         int fileId = IdEncryptor.DecryptId(id);
         int userId = GetUserId();

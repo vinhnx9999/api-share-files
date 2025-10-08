@@ -102,15 +102,12 @@ public class FileSharingService(IExternalService externalService, IFileSharingRe
             { "UploadDate", DateTime.UtcNow.ToString("o") } // ISO 8601 format
         };
 
-        if (fileSize > FileVariables.MAX_FILE_SIZE_IN_MB * 1024 * 1024)
-        {
-            fileName = await _externalService.MultipartUploadAsync(fileName, file, customMetadata);
-        }
-        else
-        {
-            fileName = await _externalService.UploadFileAsync(fileName, file, customMetadata);
-        }
-            
+        // If file size > 150 MB, use multipart upload
+        bool isLargeFile = fileSize > FileVariables.MAX_FILE_SIZE_IN_MB * 1024 * 1024;
+        fileName = isLargeFile ? 
+            await _externalService.MultipartUploadAsync(fileName, file, customMetadata) : 
+            await _externalService.UploadFileAsync(fileName, file, customMetadata);
+          
         return await SaveFileToDatabase(userId, file.FileName, fileName, file.ContentType, file.Length, deleteAfterAccessed);            
     }
 
