@@ -7,10 +7,10 @@ using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Controllers;
 
-public class DocumentsController(IHttpContextAccessor httpContextAccessor, ICloudService cloudService) :
+public class DocumentsController(IHttpContextAccessor httpContextAccessor, IFileSharingService cloudService) :
     BaseController(httpContextAccessor)
 {
-    private readonly ICloudService _cloudService = cloudService;
+    private readonly IFileSharingService _cloudService = cloudService;
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<FileObjectDto>>> GetAllFiles()

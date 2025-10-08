@@ -1,4 +1,5 @@
-﻿using VinhSharingFiles.Domain.DTOs;
+﻿using Microsoft.AspNetCore.Http;
+using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
 
 namespace VinhSharingFiles.Application.Interfaces;
@@ -10,4 +11,5 @@ public interface IFileSharingRepository
     Task UpdateFileAsync(FileSharing fileInfo);
     Task DeleteFileByIdAsync(int id);
     Task<IEnumerable<FileSharing>> GetAllFiles(int userId);
+    Task<bool> GetFileNameExistingAsync(string fileName);
 }

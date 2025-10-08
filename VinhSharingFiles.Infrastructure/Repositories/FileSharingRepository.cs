@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Domain.Entities;
-using VinhSharingFiles.Domain.SysVariables;
 using VinhSharingFiles.Infrastructure.Data;
 
 namespace VinhSharingFiles.Infrastructure.Repositories;
@@ -12,26 +11,9 @@ public class FileSharingRepository(VinhSharingDbContext context) : IFileSharingR
 
     public async Task<int> AddFileAsync(FileSharing fileInfo)
     {
-        try
-        {
-            if (fileInfo.FileName != FileVariables.STORE_TEXT_IN_DB)
-            {
-                var existingFile = await _context.FileSharings.FirstOrDefaultAsync(f => f.FileName == fileInfo.FileName && f.UserId == fileInfo.UserId);
-                if (existingFile != null)
-                {
-                    throw new ArgumentException("A file with the same name already exists for this user.");
-                }
-            }               
-
-            _context.FileSharings.Add(fileInfo);
-            await _context.SaveChangesAsync();
-
-            return fileInfo.Id;
-        }
-        catch (Exception ex)
-        {
-            throw new ArgumentException("Error checking for existing file: " + ex.Message);
-        }
+        _context.FileSharings.Add(fileInfo);
+        await _context.SaveChangesAsync();
+        return fileInfo.Id;        
     }
 
     public async Task DeleteFileByIdAsync(int id)
@@ -53,6 +35,13 @@ public class FileSharingRepository(VinhSharingDbContext context) : IFileSharingR
 
     public async Task<FileSharing?> GetFileByIdAsync(int id)
         => await _context.FileSharings.FindAsync(id);
+
+    public async Task<bool> GetFileNameExistingAsync(string fileName)
+    {
+        return await _context.FileSharings
+            .Where(x => x.FileName == fileName)
+            .AnyAsync();
+    }
 
     public async Task UpdateFileAsync(FileSharing fileInfo)
     {

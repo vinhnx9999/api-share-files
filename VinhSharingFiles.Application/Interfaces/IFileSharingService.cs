@@ -3,7 +3,7 @@ using VinhSharingFiles.Domain.DTOs;
 
 namespace VinhSharingFiles.Application.Interfaces;
 
-public interface ICloudService
+public interface IFileSharingService
 {        
     Task<FileObjectDto> DownloadFileAsync(int fileId);
     Task<IEnumerable<FileDto>> GetAllFilesByUserIdAsync(int userId);

@@ -12,6 +12,10 @@ public class EmailSender(IConfiguration configuration)
 
     public void SendEmail(string recipientEmail, string subject, string body)
     {
+        // Skip sending email for demo.com addresses
+        if (recipientEmail.Contains("@demo.com"))
+            return;
+
         // Implement email sending logic here using SMTP or an email service provider
         try
         {

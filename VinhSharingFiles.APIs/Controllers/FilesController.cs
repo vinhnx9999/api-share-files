@@ -7,10 +7,10 @@ using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Controllers;
 
-public class FilesController(IHttpContextAccessor httpContextAccessor, ICloudService cloudService) : 
+public class FilesController(IHttpContextAccessor httpContextAccessor, IFileSharingService cloudService) : 
     BaseController(httpContextAccessor)
 {
-    private readonly ICloudService _cloudService = cloudService;       
+    private readonly IFileSharingService _cloudService = cloudService;       
 
     [HttpPost("{autoDelete}")]
     public async Task<IActionResult> UploadFileAsync(IFormFile file, bool? autoDelete)

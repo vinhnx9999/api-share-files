@@ -13,8 +13,10 @@ namespace VinhSharingFiles.Application.Services;
 
 public class AuthorizationService(
     IConfiguration configuration, 
-    IUserRepository userRepository) : IAuthorizationService
+    IUserRepository userRepository,
+    EmailSender emailSender) : IAuthorizationService
 {
+    private readonly EmailSender _emailSender = emailSender;
     private readonly IUserRepository _userRepository = userRepository;
     private readonly string _encryptKey = $"{configuration["EncryptKey:AesKey"]}";
     private readonly string _encryptSalt = $"{configuration["EncryptKey:Salt"]}";
@@ -40,13 +42,9 @@ public class AuthorizationService(
 
         if (!isCreated)
             throw new InvalidOperationException("User creation failed. The username or email might already exist.");
+               
 
-        // Skip sending email for demo.com addresses
-        if (userEmail.Contains("@demo.com"))
-            return;
-
-        EmailSender emailSender = new(configuration);
-        emailSender.SendEmail(userEmail, "Welcome to SharingFiles", $"Your account has been created. Username: {userName} and ActiveCode: {activeCode}");
+        _emailSender.SendEmail(userEmail, "Welcome to SharingFiles", $"Your account has been created. Username: {userName} and ActiveCode: {activeCode}");
     }
 
     public async Task ActivateUserByIdAsync(int userId)
@@ -64,8 +62,7 @@ public class AuthorizationService(
         if (!isActivated)
             throw new InvalidOperationException("Activation failed. Please check your email and active code.");
 
-        EmailSender emailSender = new(configuration);
-        emailSender.SendEmail(email, "Account Activated", "Your email has been successfully activated.");
+        _emailSender.SendEmail(email, "Account Activated", "Your email has been successfully activated.");
     }
      
     public async Task ActivateUserNameAsync(string userName, string activeCode)

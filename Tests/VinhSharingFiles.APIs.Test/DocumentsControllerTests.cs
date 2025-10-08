@@ -12,13 +12,13 @@ namespace VinhSharingFiles.APIs.Test;
 public class DocumentsControllerTests
 {
     private readonly Mock<IHttpContextAccessor> _mockHttpContextAccessor;
-    private readonly Mock<ICloudService> _mockService;
+    private readonly Mock<IFileSharingService> _mockService;
     private readonly DocumentsController _controller;
 
     public DocumentsControllerTests()
     {
         _mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
-        _mockService = new Mock<ICloudService>();
+        _mockService = new Mock<IFileSharingService>();
 
         _controller = new DocumentsController(
             _mockHttpContextAccessor.Object,

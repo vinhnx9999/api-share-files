@@ -39,7 +39,9 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAuthorizationService, AuthorizationService>();
-        services.AddScoped<ICloudService, AmazonS3Service>();
+        services.AddScoped<IFileSharingService, FileSharingService>();
+        services.AddScoped<IExternalService, AmazonS3Service>();
+        services.AddScoped<EmailSender>();
     }
 
     public static void AddDbContextServices(this IServiceCollection services, IConfiguration configuration)

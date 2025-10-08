@@ -2,20 +2,22 @@ using Microsoft.Extensions.Configuration;
 using Moq;
 using VinhSharingFiles.Application.Interfaces;
 using VinhSharingFiles.Application.Services;
-using VinhSharingFiles.Domain.DTOs;
 using VinhSharingFiles.Domain.Entities;
 using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.Application.Test;
 
-public class AmazonS3ServiceTests
+public class FileSharingServiceTests
 {
     private readonly Mock<IFileSharingRepository> _mockRepository;
-    private readonly AmazonS3Service _service;
+    private readonly Mock<IExternalService> _externalService;
+    private readonly FileSharingService _service;
 
-    public AmazonS3ServiceTests()
+    public FileSharingServiceTests()
     {
         _mockRepository = new Mock<IFileSharingRepository>();
+        _externalService = new Mock<IExternalService>();
+
         var inMemorySettings = new Dictionary<string, string>
         {
             {"MySettingKey", "InMemoryValue"},
@@ -29,7 +31,7 @@ public class AmazonS3ServiceTests
             .AddInMemoryCollection(inMemorySettings)
             .Build();
 
-        _service = new AmazonS3Service(configuration, _mockRepository.Object);
+        _service = new FileSharingService(_externalService.Object, _mockRepository.Object);
     }
 
     [Fact]
