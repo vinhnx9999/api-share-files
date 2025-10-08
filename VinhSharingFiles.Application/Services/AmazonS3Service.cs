@@ -55,17 +55,13 @@ public class AmazonS3Service : IExternalService
         };
 
         using GetObjectResponse response = await _s3Client.GetObjectAsync(request);
-        if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
-        {
-            var memoryStream = new MemoryStream();
-            await response.ResponseStream.CopyToAsync(memoryStream);
-            memoryStream.Position = 0; // Reset stream position for reading
-            return memoryStream;
-        }
-        else
-        {
+        if (response.HttpStatusCode != System.Net.HttpStatusCode.OK) 
             throw new AmazonS3Exception($"Error downloading file: {response.HttpStatusCode}");
-        }
+
+        var memoryStream = new MemoryStream();
+        await response.ResponseStream.CopyToAsync(memoryStream);
+        memoryStream.Position = 0; // Reset stream position for reading
+        return memoryStream;
     }
 
     public async Task<string> MultipartUploadAsync(string fileName, IFormFile file, Dictionary<string, string> customMetadata)
