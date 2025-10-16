@@ -1,4 +1,4 @@
-﻿namespace VinhSharingFiles.Domain.DTOs;
+﻿namespace VinhSharingFiles.Application.DTOs;
 
 public record FileDto
 {

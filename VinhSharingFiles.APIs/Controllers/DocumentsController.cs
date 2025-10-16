@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VinhSharingFiles.APIs.Utilities;
 using VinhSharingFiles.Application.Interfaces;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Controllers;

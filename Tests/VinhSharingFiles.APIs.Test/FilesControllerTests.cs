@@ -5,7 +5,7 @@ using System.Security.Claims;
 using VinhSharingFiles.APIs.Controllers;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.Application.Interfaces;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 using VinhSharingFiles.Domain.SysVariables;
 
 namespace VinhSharingFiles.APIs.Test;

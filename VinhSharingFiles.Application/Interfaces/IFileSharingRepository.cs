@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 using VinhSharingFiles.Domain.Entities;
 
 namespace VinhSharingFiles.Application.Interfaces;

@@ -1,4 +1,4 @@
-﻿using VinhSharingFiles.Domain.DTOs;
+﻿using VinhSharingFiles.Application.DTOs;
 
 namespace VinhSharingFiles.Application.Interfaces;
 

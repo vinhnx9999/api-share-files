@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Containerization\\VinhSharingFiles\\ClientApps\\ConsoleAppCallAPIs\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B750521-E675-E0F1-9CF1-64BC0399DBF1}|ConsoleAppCallAPIs.csproj|d:\\containerization\\vinhsharingfiles\\clientapps\\consoleappcallapis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B750521-E675-E0F1-9CF1-64BC0399DBF1}|ConsoleAppCallAPIs.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B750521-E675-E0F1-9CF1-64BC0399DBF1}|ConsoleAppCallAPIs.csproj|d:\\containerization\\vinhsharingfiles\\clientapps\\consoleappcallapis\\clientdemoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B750521-E675-E0F1-9CF1-64BC0399DBF1}|ConsoleAppCallAPIs.csproj|solutionrelative:clientdemoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientDemoService.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\ClientApps\\ConsoleAppCallAPIs\\ClientDemoService.cs",
+              "RelativeDocumentMoniker": "ClientDemoService.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\ClientApps\\ConsoleAppCallAPIs\\ClientDemoService.cs",
+              "RelativeToolTip": "ClientDemoService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T06:36:11.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Containerization\\VinhSharingFiles\\ClientApps\\ConsoleAppCallAPIs\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Containerization\\VinhSharingFiles\\ClientApps\\ConsoleAppCallAPIs\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T06:19:47.02Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

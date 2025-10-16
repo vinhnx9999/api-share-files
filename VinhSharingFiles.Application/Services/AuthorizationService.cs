@@ -5,7 +5,7 @@ using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using VinhSharingFiles.Application.Interfaces;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 using VinhSharingFiles.Domain.Entities;
 using VinhSharingFiles.Domain.SysVariables;
 
@@ -78,25 +78,24 @@ public class AuthorizationService(
         EncryptionService encryptionService = new(_encryptKey, _encryptSalt);
         string encryptedText = encryptionService.Encrypt(password);
 
-        var user = await _userRepository.VerifyUserAsync(userName, encryptedText);
-        var expiredTime = DateTime.UtcNow.AddMinutes(SecurityClaims.MaximumExpirationTime);
+        var user = await _userRepository.VerifyUserAsync(userName, encryptedText);       
 
         return user == null
             ? throw new UnauthorizedAccessException("Invalid username or password.")
             : new TokenInfoDto
             {
-                AccessToken = IssueCertified(user, expiredTime),
+                AccessToken = IssueCertified(user),
                 DisplayName = user.DisplayName ?? "",
                 ExpirationTime = 60,
-                ExpiredAt = expiredTime,
+                ExpiredAt = DateTime.UtcNow.AddMinutes(SecurityClaims.MaximumExpirationTime),
                 UserName = user.UserName ?? ""
             };
     }
 
-    private string IssueCertified(User user, DateTime expiredTime)
+    private string IssueCertified(User user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-
+        var expiredTime = DateTime.UtcNow.AddMinutes(SecurityClaims.MaximumExpirationTime);
         var claims = new List<Claim>
         {
             new(ClaimTypes.Name, user.UserName ?? ""),

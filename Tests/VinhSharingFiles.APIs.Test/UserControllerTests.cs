@@ -5,7 +5,7 @@ using System.Globalization;
 using VinhSharingFiles.APIs.Controllers;
 using VinhSharingFiles.APIs.Models;
 using VinhSharingFiles.Application.Interfaces;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 
 namespace VinhSharingFiles.APIs.Test;
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VinhSharingFiles.APIs.Models;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 using IAuthorizationService = VinhSharingFiles.Application.Interfaces.IAuthorizationService;
 using IUserService = VinhSharingFiles.Application.Interfaces.IUserService;
 

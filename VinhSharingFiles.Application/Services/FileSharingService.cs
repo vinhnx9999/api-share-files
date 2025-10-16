@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using VinhSharingFiles.Application.Interfaces;
-using VinhSharingFiles.Domain.DTOs;
+using VinhSharingFiles.Application.DTOs;
 using VinhSharingFiles.Domain.Entities;
 using VinhSharingFiles.Domain.SysVariables;
 

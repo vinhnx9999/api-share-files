@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinhSharingFiles.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinhSharingFiles.Infrastructure.Test", "..\Tests\VinhSharingFiles.Infrastructure.Test\VinhSharingFiles.Infrastructure.Test.csproj", "{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientApps", "ClientApps", "{56ED64D9-26CD-4524-AAC8-D3F6B5AC014E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppCallAPIs", "..\ClientApps\ConsoleAppCallAPIs\ConsoleAppCallAPIs.csproj", "{70EC0A72-0AEA-4FC8-899F-1289E1E43F28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB781B4-DAFB-4FC1-AF41-2297799EA42F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70EC0A72-0AEA-4FC8-899F-1289E1E43F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70EC0A72-0AEA-4FC8-899F-1289E1E43F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70EC0A72-0AEA-4FC8-899F-1289E1E43F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70EC0A72-0AEA-4FC8-899F-1289E1E43F28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,7 @@ Global
 		{7F774DCF-1C74-4672-B443-77176A617521} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{77EDCC3A-0C99-49F7-B7EA-DDAE006FF201} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{8DB781B4-DAFB-4FC1-AF41-2297799EA42F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{70EC0A72-0AEA-4FC8-899F-1289E1E43F28} = {56ED64D9-26CD-4524-AAC8-D3F6B5AC014E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E1FF861-41AF-4171-87DC-823CA6048A05}
