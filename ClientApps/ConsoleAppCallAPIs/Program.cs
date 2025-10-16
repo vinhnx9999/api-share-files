@@ -1,9 +1,4 @@
-﻿
-
-using Newtonsoft.Json;
-using System;
-
-namespace ConsoleAppCallAPIs;
+﻿namespace ConsoleAppCallAPIs;
 
 public class Program
 {

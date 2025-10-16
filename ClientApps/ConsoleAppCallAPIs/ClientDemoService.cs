@@ -42,37 +42,7 @@ public class ClientDemoService
 
     public class TokenInfo 
     {
-        public string AccessToken { get; set; }
-        public string userName { get; set; }
+        public string AccessToken { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
     }
-    //private static async Task CallApiAsync()
-    //{
-    //    try
-    //    {
-
-
-
-    //        // Example GET request
-
-
-    //        // Example POST request with JSON data
-    //        //var userData = new { Name = "John Doe", Email = "john.doe@example.com" };
-    //        //string jsonContent = JsonConvert.SerializeObject(userData);
-    //        //StringContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
-
-    //        //HttpResponseMessage postResponse = await client.PostAsync("users", content);
-    //        //postResponse.EnsureSuccessStatusCode();
-
-    //        //string postResponseBody = await postResponse.Content.ReadAsStringAsync();
-    //        //Console.WriteLine($"POST Response: {postResponseBody}");
-    //    }
-    //    catch (HttpRequestException e)
-    //    {
-    //        Console.WriteLine($"Request Error: {e.Message}");
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        Console.WriteLine($"An unexpected error occurred: {e.Message}");
-    //    }
-    //}
 }
